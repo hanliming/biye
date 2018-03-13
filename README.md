@@ -4,7 +4,7 @@
 
 ###### 拉取项目
 ```
-git clone git@github.com:hanliming/biyesheji.git
+git clone git@github.com:hanliming/biye.git
 ```
 
 ###### 安装依赖
