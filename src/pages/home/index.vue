@@ -1,9 +1,13 @@
 <template>
   <div class="hello">
     <div class="header">
-      <Icon type="android-calendar" class="header_calendar"></Icon>
-      <div class="header_name">毒舌电影</div>
-      <Icon type="ios-search" class="header_search"></Icon>
+      <div class="header_calendar">
+        <Icon type="android-calendar"></Icon>
+      </div>
+      <div class="header_name" >毒舌电影</div>
+      <div  class="header_search" v-on:click="search">
+        <Icon type="ios-search"></Icon>
+      </div>
     </div>
     <template>
       <Tabs value="name1">
@@ -25,19 +29,19 @@
       </Tabs>
     </template>
     <div class="footer">
-      <div class="footer_popular">
+      <div class="footer_popular" @click="goIndexpage">
         <Icon type="home"></Icon>
         <div class="footer_wenzi">推荐</div>
       </div>
-      <div>
+      <div @click="findpage">
         <Icon type="android-compass"></Icon>
         <div class="footer_wenzi">发现</div>
       </div>
-      <div>
+      <div @click="goDynamicpage">
         <Icon type="eye" class="footer_eye"></Icon>
         <div class="footer_wenzi">动态</div>
       </div>
-      <div class="footer_myUser">
+      <div class="footer_myUser"  @click="goUserpage">
         <Icon type="person"></Icon>
         <div class="footer_wenzi">我的</div>
       </div>
@@ -64,6 +68,23 @@ export default {
     return {
       msg: '手机APP'
     }
+  },
+  methods:{
+    search(){
+      this.$router.push({path: '../searchPage'})
+    },
+    goUserpage(){
+      this.$router.push({path: '../userPage'})
+    },
+    goDynamicpage(){
+      this.$router.push({path: '../dynamicPage'})
+    },
+    findpage(){
+      this.$router.push({path: '../findPage'})
+    },
+    goIndexpage(){
+      this.$router.push({path: '/'})
+    }
   }
 }
 </script>
@@ -77,10 +98,14 @@ body{
 .header{
   width: 100%;
   height: 40px;
-  background-color: red;
+  background-color: #D8BFD8;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 .header_calendar{
   font-size: 30px;
@@ -94,16 +119,21 @@ body{
   font-size: 30px; 
   margin-right: 4%;
  }
+ .ivu-tabs{
+  padding-top: 40px;
+  padding-bottom: 60px;
+ }
  .footer{
   display: flex;
   justify-content: space-between;
-  align-items: cente;
+  align-items: center;
   width: 100%;
   height: 60px;
   position: fixed;
   bottom: 0;
-  background-color: red;
+  background-color: #D8BFD8;
   font-size: 26px;
+  z-index: 999;
  }
 .footer_eye{
   font-size: 32px;
