@@ -5,6 +5,7 @@ import searchPage from '../pages/searchPage'
 import userPage from '../pages/userPage'
 import dynamicPage from '../pages/dynamicPage'
 import findPage from '../pages/findPage'
+import settingPage from '../pages/settingPage'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/findPage',
       name: 'findPage',
       component: findPage,
+    },
+    {
+      path: '/settingPage',
+      name: 'settingPage',
+      component: settingPage,
     },
 
   ]

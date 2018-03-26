@@ -3,11 +3,14 @@
     <div class="today">/今日/</div>
     <div class="content">
       <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname_box">
-            <div class="nickname">昵称</div>
-            <div class="time">26分钟前</div>
+          <div class="avatar_box">
+            <div class="avatar">头像</div>
+            <div class="nickname_box">
+              <div class="nickname">昵称</div>
+              <div class="time">26分钟前</div>
+            </div>
           </div>
+          <div class="follow go_play"><span>+</span>关注</div>
       </div>
       <div class="wall"></div>
       <div class="description_content">
@@ -41,11 +44,14 @@
 
     <div class="content">
       <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname_box">
-            <div class="nickname">昵称</div>
-            <div class="time">26分钟前</div>
+          <div class="avatar_box">
+            <div class="avatar">头像</div>
+            <div class="nickname_box">
+              <div class="nickname">昵称</div>
+              <div class="time">26分钟前</div>
+            </div>
           </div>
+          <div class="follow go_play"><span>+</span>关注</div>
       </div>
       <div class="wall"></div>
       <div class="description_content">
@@ -79,11 +85,14 @@
 
     <div class="content">
       <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname_box">
-            <div class="nickname">昵称</div>
-            <div class="time">26分钟前</div>
+          <div class="avatar_box">
+            <div class="avatar">头像</div>
+            <div class="nickname_box">
+              <div class="nickname">昵称</div>
+              <div class="time">26分钟前</div>
+            </div>
           </div>
+          <div class="follow go_play"><span>+</span>关注</div>
       </div>
       <div class="wall"></div>
       <div class="description_content">
@@ -117,11 +126,14 @@
 
     <div class="content">
       <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname_box">
-            <div class="nickname">昵称</div>
-            <div class="time">26分钟前</div>
+          <div class="avatar_box">
+            <div class="avatar">头像</div>
+            <div class="nickname_box">
+              <div class="nickname">昵称</div>
+              <div class="time">26分钟前</div>
+            </div>
           </div>
+          <div class="follow go_play"><span>+</span>关注</div>
       </div>
       <div class="wall"></div>
       <div class="description_content">
@@ -155,11 +167,14 @@
 
     <div class="content">
       <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname_box">
-            <div class="nickname">昵称</div>
-            <div class="time">26分钟前</div>
+          <div class="avatar_box">
+            <div class="avatar">头像</div>
+            <div class="nickname_box">
+              <div class="nickname">昵称</div>
+              <div class="time">26分钟前</div>
+            </div>
           </div>
+          <div class="follow go_play"><span>+</span>关注</div>
       </div>
       <div class="wall"></div>
       <div class="description_content">
@@ -193,11 +208,14 @@
 
     <div class="content">
       <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname_box">
-            <div class="nickname">昵称</div>
-            <div class="time">26分钟前</div>
+          <div class="avatar_box">
+            <div class="avatar">头像</div>
+            <div class="nickname_box">
+              <div class="nickname">昵称</div>
+              <div class="time">26分钟前</div>
+            </div>
           </div>
+          <div class="follow go_play"><span>+</span>关注</div>
       </div>
       <div class="wall"></div>
       <div class="description_content">
@@ -231,11 +249,14 @@
 
     <div class="content">
       <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname_box">
-            <div class="nickname">昵称</div>
-            <div class="time">26分钟前</div>
+          <div class="avatar_box">
+            <div class="avatar">头像</div>
+            <div class="nickname_box">
+              <div class="nickname">昵称</div>
+              <div class="time">26分钟前</div>
+            </div>
           </div>
+          <div class="follow go_play"><span>+</span>关注</div>
       </div>
       <div class="wall"></div>
       <div class="description_content">
@@ -296,13 +317,14 @@ export default {
    border-bottom: 5px solid gainsboro;
 }
 .avatar_and_nickname{
-  margin-top: 4%;
-  margin-left: 4%;
-  padding-bottom: 10%;
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.avatar_and_nickname div{
-  float: left;
+.avatar_box{
+  width: 75%;
+  margin-left: 4%;
+  margin-top: 4%;
 }
 .avatar{
   width: 36px;
@@ -311,9 +333,13 @@ export default {
   border: 1px solid;
   border-radius: 50%;
   text-align: center;
+  float: left;
+  margin-right: 5%;
 }
-.nickname_box{
-  margin-left: 4%;
+.follow span{
+  color: #FF8C00;
+  display: inline-block;
+  padding-right: 4%;
 }
 .description_content{
   margin-left: 4%;
@@ -333,9 +359,9 @@ export default {
   text-align: left;
 }
 
-.nickname{
+/* .nickname{
   margin-left: 2%;
-}
+} */
 .photo{
   margin-left: 4%;
   width: 120px;
@@ -376,9 +402,11 @@ export default {
   color: #FF8C00
 }
 .go_play{
+  width: 20%;
   margin-right: 4%;
   border: 1px solid;
-  padding: 1% 4% 1% 4%;
+  padding: 1% 0 1% 0;
+  text-align: center;
   border-radius: 15px;
 }
 

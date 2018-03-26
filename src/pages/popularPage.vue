@@ -19,9 +19,18 @@
     <div>
       <h2>热片专题 <Icon type="ios-arrow-forward"></Icon></h2>
       <div class="right_carousel">
-        向右滑动
+        <ul>
+          <li>影片图</li>
+          <li>影片图</li>
+          <li>影片图</li>
+          <li>影片图</li>
+          <li>影片图</li>
+          <li>影片图</li>
+        </ul>
       </div>
+      <div class="wall"></div>
     </div>
+
     <div class="Hot_recommendation">
       <h1>热门推荐</h1>
       <div class="popular_Introduction">
@@ -262,17 +271,26 @@ h2{
   padding-top: 6%;
 }
 .right_carousel{
-  width: 98%;
+  overflow: hidden;
+  overflow-x:auto;
+}
+.right_carousel ul{
+  list-style: none;
+  margin-left: 4%;
+  margin-top: 4%;
+  width: 420%;
+  overflow: hidden;
+}
+li{
+  float: left;
+  width: 12%;
   height: 160px;
-  background-color: #E6E6FA;
-  line-height: 160px;
-  margin-left: 2%;
-  text-align: center
+  background-color: #e9e7ef; 
+  margin-right: 2%;
 }
 .Hot_recommendation{
   width: 100%;
   border-top: 5px solid gainsboro;
-  /* border-bottom: 5px solid gainsboro; */
   margin-top: 4%;
 }
 h1{

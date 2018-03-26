@@ -550,13 +550,17 @@ h3{
 }
 .Recommended_card{
   margin-left: 4%;
+  overflow: hidden;
+  overflow-x: auto;
 }
 ul{
   list-style: none;
+  width: 400%;
+  overflow: hidden;
 }
 li{
   float: left;
-  width: 25%;
+  width: 12%;
   height: 180px;
   background-color: white;
   margin-right: 2%;
@@ -571,12 +575,11 @@ li{
   text-align: center;
   line-height: 60px;
   margin: 0 auto;
-  margin-top: 8%;
 }
 .Recommended_name{
   font-weight: bold;
   font-size: 16px;
-  margin-top: -10%;
+  margin-top: -6%;
 }
 .attention{
   width: 60px;
