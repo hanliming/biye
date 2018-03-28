@@ -1,0 +1,1 @@
+export const GET_LOGIN = 'GET_LOGIN';//获取登录

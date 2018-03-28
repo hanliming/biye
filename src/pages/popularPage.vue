@@ -3,16 +3,24 @@
     <template>
       <Carousel autoplay v-model="value2" loop class="carousel">
           <CarouselItem>
-              <div class="demo-carousel">1</div>
+              <div class="demo-carousel">
+                <img src="http://image.dushemovie.com/other/20180328/ba/f5208432031f4eadba51ff09d9a37dba.png" alt="">
+              </div>
           </CarouselItem>
           <CarouselItem>
-              <div class="demo-carousel">2</div>
+              <div class="demo-carousel">
+                <img src="http://image.dushemovie.com/other/20180328/ce/4aed0741033a4c7dafe3dcf46b595bce.png" alt="">
+              </div>
           </CarouselItem>
           <CarouselItem>
-              <div class="demo-carousel">3</div>
+              <div class="demo-carousel">
+                <img src="http://image.dushemovie.com/other/20180328/0a/f75c36bda36946dca0126c94148fe00a.png" alt="">
+              </div>
           </CarouselItem>
           <CarouselItem>
-              <div class="demo-carousel">4</div>
+              <div class="demo-carousel">
+                <img src="http://image.dushemovie.com/other/20180328/2c/cd6edbeb788e4cd7a30ddf241f82f32c.png" alt="">
+              </div>
           </CarouselItem>
       </Carousel>
     </template>
@@ -20,12 +28,24 @@
       <h2>热片专题 <Icon type="ios-arrow-forward"></Icon></h2>
       <div class="right_carousel">
         <ul>
-          <li>影片图</li>
-          <li>影片图</li>
-          <li>影片图</li>
-          <li>影片图</li>
-          <li>影片图</li>
-          <li>影片图</li>
+          <li>
+            <img src="http://image.dushemovie.com/other/20180321/f2/902e8131f5974ce8b8b9744240672bf2.jpg" alt="">
+          </li>
+          <li>
+            <img src="http://image.dushemovie.com/other/20180316/ad/015b96add8ae4c49aadd3cc94e5a81ad.jpg" alt="">
+          </li>
+          <li>
+            <img src="http://image.dushemovie.com/other/20180215/ac/b5e16b3f42104630824010c4e03941ac.jpg" alt="">
+          </li>
+          <li>
+            <img src="http://image.dushemovie.com/other/20171121/fd/7f8f767416ca456c987a1f068db850fd.jpg" alt="">
+          </li>
+          <li>
+            <img src="http://image.dushemovie.com/other/20180131/50/35618d192dcd4c44a7579ce519f53950.jpg" alt="">
+          </li>
+          <li>
+            <img src="http://image.dushemovie.com/other/20180226/f6/1f24546bce6d4712989d6cf0e171a4f6.jpg" alt="">
+          </li>
         </ul>
       </div>
       <div class="wall"></div>
@@ -42,7 +62,7 @@
           </div>
         </div>
         <div class="popular_Introduction_right">
-          图片
+          <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2984772436,2542151237&fm=58" alt="">
         </div>
       </div>
       <div class="Commentator_info">
@@ -68,7 +88,7 @@
           </div>
         </div>
         <div class="popular_Introduction_right">
-          图片
+          <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2984772436,2542151237&fm=58" alt="">
         </div>
       </div>
       <div class="Commentator_info">
@@ -93,7 +113,7 @@
           </div>
         </div>
         <div class="popular_Introduction_right">
-          图片
+          <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2984772436,2542151237&fm=58" alt="">
         </div>
       </div>
       <div class="Commentator_info">
@@ -241,10 +261,6 @@
       </div>
     </div>
 
-
-
-
-
   </div>
 </template>
 
@@ -270,6 +286,10 @@ h2{
   padding-left: 4%;
   padding-top: 6%;
 }
+.demo-carousel img{
+  width: 100%;
+  height: 100%;
+}
 .right_carousel{
   overflow: hidden;
   overflow-x:auto;
@@ -278,7 +298,7 @@ h2{
   list-style: none;
   margin-left: 4%;
   margin-top: 4%;
-  width: 420%;
+  width: 240%;
   overflow: hidden;
 }
 li{
@@ -287,6 +307,10 @@ li{
   height: 160px;
   background-color: #e9e7ef; 
   margin-right: 2%;
+}
+li img{
+  width: 100%;
+  height: 100%;
 }
 .Hot_recommendation{
   width: 100%;
@@ -331,6 +355,10 @@ h1{
   line-height: 80px;
   text-align: center;
   background-color: #FFFAFA;
+}
+.popular_Introduction_right img{
+  width: 100%;
+  height: 100%;
 }
 .Commentator_info{
   display: flex;

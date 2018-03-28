@@ -2,7 +2,9 @@
   <div class="settingPage">
     <!-- 设置 返回 -->
     <div class="header">
-        <Icon type="ios-arrow-left" class="cancel"></Icon>
+        <div @click="goback">
+            <Icon type="ios-arrow-left" class="cancel"></Icon>
+        </div>
         <p>设置</p>
         <div></div>
     </div>
@@ -13,16 +15,6 @@
 
     <!-- 列表项 -->
     <ul>
-        <li>
-            <div class="icon_div">
-                <Icon type="ios-eye-outline" class="li_icon"></Icon>
-                <div class="title">护眼模式</div>
-            </div>
-             <template>
-                <i-switch v-model="switch1" @on-change="change"></i-switch>
-            </template>
-        </li>
-
         <li>
             <div class="icon_div">
                 <Icon type="thumbsup" class="li_icon"></Icon>
@@ -108,7 +100,9 @@ export default {
     }
   },
   methods:{
-      
+      goback(){
+          this.$router.go(-1);
+      }
   }
 }
 </script>

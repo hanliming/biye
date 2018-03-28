@@ -243,12 +243,19 @@
      </ul>
    </div>
 
+  <footer-component></footer-component>
+
   </div>
 </template>
 
 <script>
+import footerComponent from './footerComponent'
+
 export default {
   name: 'findPage',
+  components: {
+      footerComponent,
+  },
   data () {
     return {
       

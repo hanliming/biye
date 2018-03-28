@@ -1,14 +1,14 @@
 <template>
   <div class="hotnews">
     <template class="search_header">
-        <Input  placeholder="查找影片、影评、影单、影人" clearable class="search_input"></Input>
+        <Input  placeholder="查找影片、影评、影单、影人" clearable class="search_input" v-model="seachKey" onblur="seach()"></Input>
         <router-link to="/" class="search_cancel">取消</router-link>
     </template>
 
     <div class="search_history"> 
       <div class="history_title">
         <span class="wenzi_title">搜索历史</span>
-        <span class="wenzi_clear">清除</span>
+        <span class="wenzi_clear" @click="clear">清除</span>
       </div>
       <ul class="ul_history">
         <li>侯立立</li>
@@ -62,9 +62,38 @@ export default {
   name: 'searchPage',
   data () {
     return {
-      
+      seachKey: '',//搜索关键字
+    }
+  },
+  methods:{
+    seach(){
+      console.log('search=====================')
+      // this.$http.post('http://localhost:3000/search',{key: this.seachKey})
+      // .then(res=>{
+      //     console.log(res.data)
+      //     if(res.data.success == true){
+      //         alert('添加成功')
+      //     }else{
+      //         alert(res.data.message)
+      //     }
+      // },err=>{
+      //     console.log(err)
+      // })
+    },
+    clear(){
+      this.$http.post('http://localhost:3000/delete')
+      .then(res=>{
+         if(res.data.success == true){
+              alert('删除成功')
+          }else{
+              alert(res.data.message)
+          }
+      },err=>{
+        console.log(err)
+      })
     }
   }
+
 }
 </script>
 

@@ -273,17 +273,19 @@
       </div>
     </div>
 
-
-
-
-
+    <footer-component></footer-component>
 
   </div>
 </template>
 
 <script>
+import footerComponent from './footerComponent'
+
 export default {
   name: 'dynamicPage',
+  components: {
+      footerComponent,
+  },
   data () {
     return {
       valueText: 3,
