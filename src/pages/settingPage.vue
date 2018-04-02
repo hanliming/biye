@@ -10,8 +10,8 @@
     </div>
 
     <!-- 立即登录 -->
-    <div class="loginBtn">立即登录</div>
-
+    <div class="loginBtn" v-if="!user_name" @click="login">立即登录</div>
+    <!-- <div v-else>账号信息设置</div> -->
 
     <!-- 列表项 -->
     <ul>
@@ -87,21 +87,48 @@
         </li>
 
     </ul>
-
+    <div class="wall"></div>
+    <div v-if="user_name" class="exit">
+       <Button type="primary" @click="exit">退出登录</Button>
+    </div>
+    <popups-component v-if="isShowLogin" @setState="setState"></popups-component>
   </div>
 </template>
 
 <script>
+import popupsComponent from './popupsComponent'
 export default {
   name: 'userPage',
+  components: {
+    popupsComponent,
+  },
   data () {
     return {
-       switch1: false
+       switch1: false,
+       user_name:'',
+       isShowLogin:false
     }
   },
   methods:{
       goback(){
           this.$router.go(-1);
+      },
+      //登录
+      login () {
+          this.isShowLogin = true
+      },
+      setState () {
+          this.isShowLogin = false
+      },
+      //退出登录
+      exit () {
+          window.localStorage.clear()
+          this.$router.push({name:'userPage'})
+      }
+  },
+  created () {
+      if(localStorage.user_name){
+          this.user_name = localStorage.user_name
       }
   }
 }
@@ -160,4 +187,18 @@ li{
     line-height: 35px;
 }
 
+.exit{
+   width: 100%;
+   height: 100px;
+}
+.exit button{
+    width: 90%;
+    height: 60px;
+    margin: 5%;
+    background-color: #FFFF00;
+    border-color: none;
+}
+.ivu-btn-primary{
+    border-style: none;
+}
 </style>

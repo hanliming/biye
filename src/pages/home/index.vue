@@ -17,7 +17,7 @@
           <TabPane label="文章" name="name2">
             <article-page></article-page>
           </TabPane>
-          <TabPane label="短视频" name="name4">
+          <TabPane label="短视频" name="name3">
             <shortvideo-page></shortvideo-page>
           </TabPane>
           <TabPane label="热讯" name="name4">
@@ -60,10 +60,10 @@ export default {
     },
   },
   created () {
-    this.$http.get('http://localhost:3000/d')
-    .then(res=>{
-        console.log(res)
-    },err=>{})
+    // this.$http.get('http://localhost:3000/d')
+    // .then(res=>{
+    //     console.log(res)
+    // },err=>{})
   }
 }
 </script>

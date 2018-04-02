@@ -52,12 +52,13 @@ export default {
       },
     //   登录
      goLogin(){
-         if(this.mobile != '' || this.password != ''){
+         if(this.mobile != '' && this.password != ''){
             this.$http.get('http://localhost:3000/login',{params: {mobile: this.mobile,password: this.password}})
             .then(res=>{
                 console.log(res.data)
                 if(res.data.success == true){
                     alert('登录成功')
+                    window.localStorage.setItem('user_name',res.data.message.mobile)
                     this.$router.push({path: '/userPage'})
                 }else{
                     alert(res.data.message);

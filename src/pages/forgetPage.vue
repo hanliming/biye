@@ -48,7 +48,7 @@ export default {
                 console.log(res.data);
                 if (res.data.success == true) {
                 alert("修改成功");
-                // this.$router.push({ path: "/loginPage" });
+                this.$router.push({ path: "/loginPage" });
                 } else {
                 alert(res.data.message);
                 }

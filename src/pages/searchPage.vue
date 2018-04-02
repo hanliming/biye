@@ -1,22 +1,17 @@
 <template>
   <div class="hotnews">
     <template class="search_header">
-        <Input  placeholder="查找影片、影评、影单、影人" clearable class="search_input" v-model="seachKey" onblur="seach()"></Input>
+        <input  placeholder="查找影片、影评、影单、影人" clearable class="search_input" v-model="seachKey" @blur="seach">
         <router-link to="/" class="search_cancel">取消</router-link>
     </template>
 
     <div class="search_history"> 
-      <div class="history_title">
+      <div class="history_title" v-if="isShowHistory">
         <span class="wenzi_title">搜索历史</span>
         <span class="wenzi_clear" @click="clear">清除</span>
       </div>
       <ul class="ul_history">
-        <li>侯立立</li>
-        <li>侯立立</li>
-        <li>侯立立</li>
-        <li>侯立立</li>
-        <li>侯立立</li>
-        <li>侯立立</li>
+        <li v-for="(item,index) in seachData" :key="index">{{item.search_key}}</li>
       </ul>
       <div class="wall"></div>
     </div>
@@ -63,28 +58,35 @@ export default {
   data () {
     return {
       seachKey: '',//搜索关键字
+      seachData: [],//查询关键字
+      isShowHistory: true,
     }
   },
   methods:{
+    //添加 搜索数据
     seach(){
-      console.log('search=====================')
-      // this.$http.post('http://localhost:3000/search',{key: this.seachKey})
-      // .then(res=>{
-      //     console.log(res.data)
-      //     if(res.data.success == true){
-      //         alert('添加成功')
-      //     }else{
-      //         alert(res.data.message)
-      //     }
-      // },err=>{
-      //     console.log(err)
-      // })
+      if(this.seachKey != ''){
+        this.$http.post('http://localhost:3000/search',{key: this.seachKey})
+          .then(res=>{
+              console.log(res.data)
+              if(res.data.success == true){
+                  alert('添加成功')
+                  this.$router.go(0);
+              }else{
+                  alert(res.data.message)
+              }
+          },err=>{
+              console.log(err)
+          })
+      }
     },
+    //清除搜索数据
     clear(){
       this.$http.post('http://localhost:3000/delete')
       .then(res=>{
          if(res.data.success == true){
               alert('删除成功')
+              this.$router.go(0);
           }else{
               alert(res.data.message)
           }
@@ -92,6 +94,22 @@ export default {
         console.log(err)
       })
     }
+  },
+  created(){
+    //  查询搜索数据
+    this.$http.get("http://localhost:3000/history").then(
+      res => {
+        // console.log(res.data.data);
+        this.seachData = res.data.data;
+        if(this.seachData == ''){
+          this.isShowHistory = false;
+        }
+      },
+      err => {
+        console.log(err)
+      }
+    );
+    
   }
 
 }
@@ -106,7 +124,10 @@ export default {
 }
 .search_input{
   width: 80%;
+  outline: none;
   margin-top: 2%;
+  padding: 2%;
+  border-radius: 5px;
   margin-left: 4%;
 }
 .search_cancel{
@@ -118,7 +139,7 @@ export default {
 }
 .search_history{
   margin-top: 4%;
-  border-bottom: 1px solid #C0C0C0;
+  /* border-bottom: 1px solid #C0C0C0; */
 }
 .history_title{
   margin: 0 4% 4% 4%;

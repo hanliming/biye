@@ -36,7 +36,7 @@ export default {
           this.$router.go(-1);
       },
       nextStep(){
-          if(this.mobileNum != '' || this.pass != ''){
+          if(this.mobileNum != '' && this.pass != ''){
             this.$http.post('http://localhost:3000/signUP',{mobile: this.mobileNum,password: this.pass})
             .then(res=>{
                 console.log(res.data)

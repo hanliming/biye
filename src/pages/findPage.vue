@@ -174,69 +174,17 @@
      <div>本月观影指南</div>
    </div>
 
-   <div class="big_image">图片</div>
+   <div class="big_image">
+     <img src="http://image.dushemovie.com/other/20180324/02/c3fd6e287f194c5e827e14923c7f9602.jpg" alt="">
+   </div>
 
 
    <div class="score_lists">
      <ul>
-       <li>
-         <div>图片</div>
-         <p>伟大的诱惑者</p>
-         <span>有点继承者的味道</span>
-       </li>
-        <li>
-         <div>图片</div>
-         <p>伟大的诱惑者</p>
-         <span>有点继承者的味道</span>
-       </li>
-        <li>
-         <div>图片</div>
-         <p>伟大的诱惑者</p>
-         <span>有点继承者的味道</span>
-       </li>
-        <li>
-         <div>图片</div>
-         <p>伟大的诱惑者</p>
-         <span>有点继承者的味道</span>
-       </li>
-        <li>
-         <div>图片</div>
-         <p>伟大的诱惑者</p>
-         <span>有点继承者的味道</span>
-       </li>
-        <li>
-         <div>图片</div>
-         <p>伟大的诱惑者</p>
-         <span>有点继承者的味道</span>
-       </li>
-
-        <li>
-         <div>图片</div>
-         <p>伟大的诱惑者</p>
-         <span>有点继承者的味道</span>
-       </li>
-        <li>
-         <div>图片</div>
-         <p>伟大的诱惑者</p>
-         <span>有点继承者的味道</span>
-       </li>
-        <li>
-         <div>图片</div>
-         <p>伟大的诱惑者</p>
-         <span>有点继承者的味道</span>
-       </li>
-        <li>
-         <div>图片</div>
-         <p>伟大的诱惑者</p>
-         <span>有点继承者的味道</span>
-       </li>
-        <li>
-         <div>图片</div>
-         <p>伟大的诱惑者</p>
-         <span>有点继承者的味道</span>
-       </li>
-        <li>
-         <div>图片</div>
+       <li v-for="(item,index) in hotRecommendation" :key="index">
+         <div>
+           <img :src="item.img" alt="">
+         </div>
          <p>伟大的诱惑者</p>
          <span>有点继承者的味道</span>
        </li>
@@ -258,6 +206,7 @@ export default {
   },
   data () {
     return {
+      hotRecommendation: []
       
     }
   },
@@ -265,6 +214,15 @@ export default {
     goSearchPage(){
       this.$router.push({path: '/searchPage'})
     }
+  },
+  created(){
+    this.$http.get("http://localhost:3000/hotnews").then(
+      res => {
+        console.log(res.data.data);
+        this.hotRecommendation = res.data.data;
+      },
+      err => {}
+    );
   }
 }
 </script>
@@ -339,12 +297,12 @@ export default {
   overflow-x: auto;
 }
 .leaderboard_box{
-  width: 420%;
+  width: 300%;
   overflow: hidden;
 }
 .leaderboard_rows_lists{
   float: left;
-  width: 18%;
+  width: 23%;
   margin-right: 2%;
 }
 h4{
@@ -425,11 +383,16 @@ h4{
   text-align: center;
   line-height: 120px;
 }
+.big_image img{
+  width: 100%;
+  height: 100%;
+}
 
 /* 横向排行 */
 .score_lists{
   padding-left: 4%;
   padding-top: 4%;
+  padding-bottom: 60px;
   overflow: hidden;
   overflow-x: auto;
   
@@ -449,6 +412,10 @@ h4{
   width: 100%;
   height: 120px;
   background-color: #f0f0f4;
+}
+.score_lists ul li div img{
+  width: 100%;
+  height: 100%;
 }
 .score_lists ul li p{
   font-size: 14px;

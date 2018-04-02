@@ -1,166 +1,26 @@
 <template>
   <div class="shortvideo">
     <div class="today">/今日/</div>
-    <div class="content">
+
+    <div class="content" v-for="(item,index) in videos" :key="index">
       <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname">昵称</div>
+          <div class="avatar">
+            <img :src="item.touxiang" alt="">
+          </div>
+          <div class="nickname">{{item.nicheng}}</div>
       </div>
       <div class="wall"></div>
-      <p>槽点满满,《少年泰坦出击》大电影首曝官方中字先导预告！</p>
-      <div class="video_box">video!</div>
+      <p @click="godetail">{{item.discription}}</p>
+      <div class="video_box">
+        <img :src="item.video" alt="">
+      </div>
       <div class="time_and_comment">
-        <span class="time">26分钟前</span>
-        <span class="comment">1<Icon type="ios-chatbubble-outline"></Icon></span>
+        <span class="time">{{item.time}}</span>
+        <span class="comment">{{item.counts}}<Icon type="ios-chatbubble-outline"></Icon></span>
       </div>
     </div>
-
-    <div class="content">
-        <div class="avatar_and_nickname"> 
-            <div class="avatar">头像</div>
-            <div class="nickname">昵称</div>
-        </div>
-        <div class="wall"></div>
-        <p>槽点满满,《少年泰坦出击》大电影首曝官方中字先导预告！</p>
-        <div class="video_box">video!</div>
-        <div class="time_and_comment">
-          <span class="time">26分钟前</span>
-          <span class="comment">1<Icon type="ios-chatbubble-outline"></Icon></span>
-        </div>
-    </div>
-
-    <div class="content">
-      <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname">昵称</div>
-      </div>
-      <div class="wall"></div>
-      <p>槽点满满,《少年泰坦出击》大电影首曝官方中字先导预告！</p>
-      <div class="video_box">video!</div>
-      <div class="time_and_comment">
-        <span class="time">26分钟前</span>
-        <span class="comment">1<Icon type="ios-chatbubble-outline"></Icon></span>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname">昵称</div>
-      </div>
-      <div class="wall"></div>
-      <p>槽点满满,《少年泰坦出击》大电影首曝官方中字先导预告！</p>
-      <div class="video_box">video!</div>
-      <div class="time_and_comment">
-        <span class="time">26分钟前</span>
-        <span class="comment">1<Icon type="ios-chatbubble-outline"></Icon></span>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname">昵称</div>
-      </div>
-      <div class="wall"></div>
-      <p>槽点满满,《少年泰坦出击》大电影首曝官方中字先导预告！</p>
-      <div class="video_box">video!</div>
-      <div class="time_and_comment">
-        <span class="time">26分钟前</span>
-        <span class="comment">1<Icon type="ios-chatbubble-outline"></Icon></span>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname">昵称</div>
-      </div>
-      <div class="wall"></div>
-      <p>槽点满满,《少年泰坦出击》大电影首曝官方中字先导预告！</p>
-      <div class="video_box">video!</div>
-      <div class="time_and_comment">
-        <span class="time">26分钟前</span>
-        <span class="comment">1<Icon type="ios-chatbubble-outline"></Icon></span>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname">昵称</div>
-      </div>
-      <div class="wall"></div>
-      <p>槽点满满,《少年泰坦出击》大电影首曝官方中字先导预告！</p>
-      <div class="video_box">video!</div>
-      <div class="time_and_comment">
-        <span class="time">26分钟前</span>
-        <span class="comment">1<Icon type="ios-chatbubble-outline"></Icon></span>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname">昵称</div>
-      </div>
-      <div class="wall"></div>
-      <p>槽点满满,《少年泰坦出击》大电影首曝官方中字先导预告！</p>
-      <div class="video_box">video!</div>
-      <div class="time_and_comment">
-        <span class="time">26分钟前</span>
-        <span class="comment">1<Icon type="ios-chatbubble-outline"></Icon></span>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname">昵称</div>
-      </div>
-      <div class="wall"></div>
-      <p>槽点满满,《少年泰坦出击》大电影首曝官方中字先导预告！</p>
-      <div class="video_box">video!</div>
-      <div class="time_and_comment">
-        <span class="time">26分钟前</span>
-        <span class="comment">1<Icon type="ios-chatbubble-outline"></Icon></span>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname">昵称</div>
-      </div>
-      <div class="wall"></div>
-      <p>槽点满满,《少年泰坦出击》大电影首曝官方中字先导预告！</p>
-      <div class="video_box">video!</div>
-      <div class="time_and_comment">
-        <span class="time">26分钟前</span>
-        <span class="comment">1<Icon type="ios-chatbubble-outline"></Icon></span>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="avatar_and_nickname"> 
-          <div class="avatar">头像</div>
-          <div class="nickname">昵称</div>
-      </div>
-      <div class="wall"></div>
-      <p>槽点满满,《少年泰坦出击》大电影首曝官方中字先导预告！</p>
-      <div class="video_box">video!</div>
-      <div class="time_and_comment">
-        <span class="time">26分钟前</span>
-        <span class="comment">1<Icon type="ios-chatbubble-outline"></Icon></span>
-      </div>
-    </div>
-
 
   </div>
-
-
-
-  
 </template>
 
 <script>
@@ -168,8 +28,22 @@ export default {
   name: 'shortvideoPage',
   data () {
     return {
-      
+      videos: [],
     }
+  },
+  methods:{
+    godetail(){
+      this.$router.push({path: '/bannerdetailPage'})
+    }
+  },
+  created(){
+    this.$http.get("http://localhost:3000/video").then(
+      res => {
+        console.log(res.data.data);
+        this.videos = res.data.data;
+      },
+      err => {}
+    );
   }
 }
 </script>
@@ -197,8 +71,11 @@ export default {
   width: 26px;
   height: 26px;
   line-height: 26px;
-  border: 1px solid;
   border-radius: 50%;
+}
+.avatar img{
+  width: 100%;
+  height: 100%;
 }
 .nickname{
   margin-left: 2%;
@@ -216,6 +93,10 @@ p{
   line-height: 120px;
   text-align: center;
   background-color: #E6E6FA;
+}
+.video_box img{
+  width: 100%;
+  height: 100%;
 }
 .time_and_comment{
   display: flex;

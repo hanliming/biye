@@ -1,31 +1,37 @@
 <template>
   <div class="hotnews">
     <div class="today">/今日/</div>
-    <div class="content">
+    <div class="content" v-for="(item,index) in hotRecommendation" :key="index">
       <div class="avatar_and_nickname"> 
           <div class="avatar_box">
-            <div class="avatar">头像</div>
+            <div class="avatar">
+              <img :src="item.touxiang" alt="">
+            </div>
             <div class="nickname_box">
-              <div class="nickname">昵称</div>
-              <div class="time">26分钟前</div>
+              <div class="nickname">{{item.nickname}}</div>
+              <div class="time">{{item.name}}</div>
             </div>
           </div>
           <div class="follow go_play"><span>+</span>关注</div>
       </div>
       <div class="wall"></div>
       <div class="description_content">
-        <div class="classification">神似</div>
-        <div class="content_wenzi">最近,好莱坞传奇女演员朱迪.加兰的传记片《朱迪》公布了主角瑞丽.齐薇格的定妆照。该片预计于2019年上映。</div>
+        <div class="classification">{{item.comment}}</div>
+        <div class="content_wenzi">{{item.description}}</div>
       </div>
       <div class="hotnews_photoes">
-        <div class="photo">照片</div>
+        <div class="photo">
+          <img :src="item.img" alt="">
+        </div>
         <!-- 影片链接 -->
         <div class="movie_link">
           <div class="movie_link_left">
-            <div class="movie_image">宣传片</div>
+            <div class="movie_image">
+              <img :src="item.small_image" alt="">
+            </div>
             <div class="movie_info">
-              <span>攻壳机动队 <span class="playing">[可播放]</span></span><br>
-              <span>动作/科幻/动画</span>
+              <span>{{item.moviename}} <span class="playing">[可播放]</span></span><br>
+              <span>{{item.kinds}}</span>
             </div>
           </div>
           <div class="go_play">观看</div>
@@ -297,8 +303,17 @@ export default {
   name: 'hotnewsPage',
   data () {
     return {
-      
+      hotRecommendation: []
     }
+  },
+  created(){
+      this.$http.get("http://localhost:3000/hotnews").then(
+      res => {
+        console.log(res.data.data);
+        this.hotRecommendation = res.data.data;
+      },
+      err => {}
+    );
   }
 }
 </script>
@@ -336,6 +351,11 @@ export default {
   float: left;
   margin-right: 5%;
 }
+.avatar img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
 .follow span{
   color: #FF8C00;
   display: inline-block;
@@ -371,6 +391,10 @@ export default {
   background-color: #E6E6FA;
   margin-bottom: 4%;
 }
+.photo img{
+  width: 100%;
+  height: 100%;
+}
 
 /* 影片链接 */
 .movie_link{
@@ -394,6 +418,10 @@ export default {
   border: 1px solid;
   float: left;
   margin-right: 4%;
+}
+.movie_image img{
+  width: 100%;
+  height: 100%;
 }
 .movie_info{
   margin-top: 4%;

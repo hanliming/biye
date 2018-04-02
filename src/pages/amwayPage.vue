@@ -1,415 +1,35 @@
 <template>
   <div class="amway">
 
-    <div class="popular_Introduction">
+  <div v-for="(item,index) in hotRecommendation" :key="index">
+    <div class="popular_Introduction" @click="godetail">
       <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
+        <p>{{item.content}}</p>
         <div class="movie_name">
           <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
+          {{item.movieName}}
         </div>
       </div>
       <div class="popular_Introduction_right">
-        图片
+        <img :src="item.image" alt="">
       </div>
     </div>
+
     <div class="Commentator_info">
       <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
+        <div class="avatar">
+          <img :src="item.touxiang" alt="">
+        </div>
+        <div class="nickname">{{item.nickname}}</div>
         <div class="message">
           <Icon type="chatbox"></Icon>
-          <span>10</span>
+          <span>{{item.commentCount}}</span>
         </div>
         <div class="wall"></div>
       </div>
-      <div class="Commentator_time">31分钟前</div>
+      <div class="Commentator_time">{{item.time}}</div>
     </div>
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-    <div class="popular_Introduction">
-      <div class="popular_Introduction_left">
-        <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-        <div class="movie_name">
-          <Icon type="ios-videocam-outline"></Icon>
-          边境杀手2:边境战士
-        </div>
-      </div>
-      <div class="popular_Introduction_right">
-        图片
-      </div>
-    </div>
-    <div class="Commentator_info">
-      <div class="Commentator_info_left">
-        <div class="avatar">头像</div>
-        <div class="nickname">昵称</div>
-        <div class="message">
-          <Icon type="chatbox"></Icon>
-          <span>10</span>
-        </div>
-        <div class="wall"></div>
-      </div>
-      <div class="Commentator_time">31分钟前</div>
-    </div>
-
-
-
-
+  </div>
 
   </div>
 </template>
@@ -419,8 +39,22 @@ export default {
   name: 'amwayPage',
   data () {
     return {
-      
+      hotRecommendation: [],
     }
+  },
+
+  methods:{
+    godetail(){
+      this.$router.push({path: '/bannerdetailPage'})
+    }
+  },
+  created(){
+      this.$http.get("http://localhost:3000/hot").then(
+      res => {
+        this.hotRecommendation = res.data.data;
+      },
+      err => {}
+    );
   }
 }
 </script>
@@ -459,6 +93,10 @@ export default {
   text-align: center;
   background-color: #FFFAFA;
 }
+.popular_Introduction_right img{
+  width: 100%;
+  height: 100%;
+}
 .Commentator_info{
   display: flex;
   justify-content: space-between;
@@ -480,6 +118,10 @@ export default {
   border: 1px solid;
   margin-left: 4%;
   float: left;
+}
+.avatar img{
+  width: 100%;
+  height: 100%;
 }
 .nickname,.message{
   margin-left: 4%;

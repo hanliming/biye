@@ -7,7 +7,8 @@
 
     <Modal
         v-model="modal10"
-        class-name="vertical-center-modal">
+        class-name="vertical-center-modal"
+        @on-visible-change="handleChange">
         <div class="title">
             <div class="left_line"></div>
             <div class="wenzi">登录毒舌电影APP</div>
@@ -31,6 +32,9 @@
         <div class="wall"></div>
         <button @click="goLoginPage">立即登录</button>
         <div class="mobile" @click="goSignupPage">手机号注册</div>
+        <div slot="footer" class="hello">
+            <!-- <Button type="error" size="large" long :loading="modal_loading" @click="del">Delete</Button> -->
+        </div>
     </Modal>
 
 
@@ -56,12 +60,15 @@ export default {
     //   setState () {
     //       this.isThis = false;
     //   },
-      goLoginPage(){
-         this.$router.push({path: '/loginPage'}) 
-      },
-      goSignupPage(){
-          this.$router.push({path: '/signupPage'})
-      }
+    handleChange (val) {
+        this.$emit('setState')
+    },
+    goLoginPage(){
+        this.$router.push({path: '/loginPage'}) 
+    },
+    goSignupPage(){
+        this.$router.push({path: '/signupPage'})
+    }
   }
 }
 </script>
@@ -122,13 +129,4 @@ button{
     text-align: center;
     padding-bottom: 4%;
 }
-/* 弹窗 去掉底部 “取消，确认” */
-.ivu-modal-footer{
-   border-top: 1px solid #e9eaec;
-    padding: 12px 18px 12px 18px;
-    text-align: right;
-    display: none; 
-}
 </style>
-
-

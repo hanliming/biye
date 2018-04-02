@@ -2,20 +2,22 @@
   <div class="article">
     <div class="topic">
       <p>在世界上七大恐怖点曲靖，这可能是今年最恐怖的韩国片</p>
-      <div class="topic_image">
-        图片
+      <div class="topic_image" @click="godetail">
+        <img src="http://image.dushemovie.com/other/20180329/5abbc51add703_5abbc51ab114178.jpg" alt="">
       </div>
 
       <!-- 影片链接 -->
       <div class="movie_link">
         <div class="movie_link_left">
-          <div class="movie_image">宣传片</div>
+          <div class="movie_image">
+            <img src="http://image.dushemovie.com/other/20180329/5abbc51add703_5abbc51ab114178.jpg" alt="">
+          </div>
           <div class="movie_info">
             <span>攻壳机动队 <span class="playing">[可播放]</span></span><br>
             <span>动作/科幻/动画</span>
           </div>
         </div>
-        <div class="go_play">观看</div>
+        <!-- <div class="go_play">观看</div> -->
       </div>
 
       <!-- 评论信息 -->
@@ -32,123 +34,29 @@
         <div class="Commentator_time">31分钟前</div>
       </div>
       <!--列表  -->
-      <div class="popular_Introduction">
+      <div class="popular_Introduction" v-for="(item,index) in hotRecommendation" :key="index">
         <div>
           <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
+            <p>{{item.content}}</p>
+            <span> | {{item.from}}</span>
           </div>
           <div class="Commentator_info">
             <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
+              <div class="avatar">
+                <img :src="item.touxiang" alt="">
+              </div>
+              <div class="nickname">{{item.nickname}}</div>
               <div class="message">
                 <Icon type="chatbox"></Icon>
-                <span>10</span>
+                <span>{{item.commentCount}}</span>
               </div>
               <div class="wall"></div>
             </div>
-            <div class="Commentator_time">31分钟前</div>
+            <div class="Commentator_time">{{item.time}}</div>
           </div>
         </div>
-        <div class="popular_Introduction_right">
-          图片
-        </div>
-      </div>
-
-      <div class="popular_Introduction">
-        <div>
-          <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
-          </div>
-          <div class="Commentator_info">
-            <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
-              <div class="message">
-                <Icon type="chatbox"></Icon>
-                <span>10</span>
-              </div>
-              <div class="wall"></div>
-            </div>
-            <div class="Commentator_time">31分钟前</div>
-          </div>
-        </div>
-        <div class="popular_Introduction_right">
-          图片
-        </div>
-      </div>
-
-      <div class="popular_Introduction">
-        <div>
-          <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
-          </div>
-          <div class="Commentator_info">
-            <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
-              <div class="message">
-                <Icon type="chatbox"></Icon>
-                <span>10</span>
-              </div>
-              <div class="wall"></div>
-            </div>
-            <div class="Commentator_time">31分钟前</div>
-          </div>
-        </div>
-        <div class="popular_Introduction_right">
-          图片
-        </div>
-      </div>
-
-      <div class="popular_Introduction">
-        <div>
-          <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
-          </div>
-          <div class="Commentator_info">
-            <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
-              <div class="message">
-                <Icon type="chatbox"></Icon>
-                <span>10</span>
-              </div>
-              <div class="wall"></div>
-            </div>
-            <div class="Commentator_time">31分钟前</div>
-          </div>
-        </div>
-        <div class="popular_Introduction_right">
-          图片
-        </div>
-      </div>
-
-      <div class="popular_Introduction">
-        <div>
-          <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
-          </div>
-          <div class="Commentator_info">
-            <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
-              <div class="message">
-                <Icon type="chatbox"></Icon>
-                <span>10</span>
-              </div>
-              <div class="wall"></div>
-            </div>
-            <div class="Commentator_time">31分钟前</div>
-          </div>
-        </div>
-        <div class="popular_Introduction_right">
-          图片
+        <div class="popular_Introduction_right" @click="godetail">
+          <img :src="item.image" alt="">
         </div>
       </div>
 
@@ -157,22 +65,12 @@
         <div class="Recommended_author_title">推荐作者</div>
         <div class="Recommended_card">
           <ul>
-            <li>
-              <div class="Recommended_avatar">头像</div><br>
-              <div class="Recommended_name">毒sir</div>
-              <div>毒舌电影 主笔</div>
-              <div class="attention">+ 关注</div>
-            </li>
-            <li>
-              <div class="Recommended_avatar">头像</div><br>
-              <div class="Recommended_name">毒sir</div>
-              <div>毒舌电影 主笔</div>
-              <div class="attention">+ 关注</div>
-            </li>
-            <li>
-              <div class="Recommended_avatar">头像</div><br>
-              <div class="Recommended_name">毒sir</div>
-              <div>毒舌电影 主笔</div>
+            <li v-for="(item,index) in authors" :key="index">
+              <div class="Recommended_avatar">
+                <img src="../assets/author.jpg" alt="">
+              </div><br>
+              <div class="Recommended_name">{{item.nickname}}</div>
+              <div>{{item.zhicheng}}</div>
               <div class="attention">+ 关注</div>
             </li>
           </ul>
@@ -181,19 +79,22 @@
       </div>
 
       <!--列表  -->
-      <div class="popular_Introduction">
+      <div class="popular_Introduction" v-for="(item,index) in hotRecommendation" >
         <div>
           <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
+            <p>{{item.content}}</p>
+            <span> | {{item.from}}</span>
           </div>
           <div class="Commentator_info">
             <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
+              <div class="avatar">
+                <!-- <img src="../assets/userImage.jpg" alt=""> -->
+                <img :src="item.touxiang" alt="">
+              </div>
+              <div class="nickname">{{item.nickname}}</div>
               <div class="message">
                 <Icon type="chatbox"></Icon>
-                <span>10</span>
+                <span>{{item.commentCount}}</span>
               </div>
               <div class="wall"></div>
             </div>
@@ -201,231 +102,11 @@
           </div>
         </div>
         <div class="popular_Introduction_right">
-          图片
+          <img :src="item.image" alt="">
         </div>
       </div>
-
-      <div class="popular_Introduction">
-        <div>
-          <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
-          </div>
-          <div class="Commentator_info">
-            <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
-              <div class="message">
-                <Icon type="chatbox"></Icon>
-                <span>10</span>
-              </div>
-              <div class="wall"></div>
-            </div>
-            <div class="Commentator_time">31分钟前</div>
-          </div>
-        </div>
-        <div class="popular_Introduction_right">
-          图片
-        </div>
-      </div>
-
-      <div class="popular_Introduction">
-        <div>
-          <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
-          </div>
-          <div class="Commentator_info">
-            <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
-              <div class="message">
-                <Icon type="chatbox"></Icon>
-                <span>10</span>
-              </div>
-              <div class="wall"></div>
-            </div>
-            <div class="Commentator_time">31分钟前</div>
-          </div>
-        </div>
-        <div class="popular_Introduction_right">
-          图片
-        </div>
-      </div>
-
-      <div class="popular_Introduction">
-        <div>
-          <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
-          </div>
-          <div class="Commentator_info">
-            <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
-              <div class="message">
-                <Icon type="chatbox"></Icon>
-                <span>10</span>
-              </div>
-              <div class="wall"></div>
-            </div>
-            <div class="Commentator_time">31分钟前</div>
-          </div>
-        </div>
-        <div class="popular_Introduction_right">
-          图片
-        </div>
-      </div>
-
-      <div class="popular_Introduction">
-        <div>
-          <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
-          </div>
-          <div class="Commentator_info">
-            <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
-              <div class="message">
-                <Icon type="chatbox"></Icon>
-                <span>10</span>
-              </div>
-              <div class="wall"></div>
-            </div>
-            <div class="Commentator_time">31分钟前</div>
-          </div>
-        </div>
-        <div class="popular_Introduction_right">
-          图片
-        </div>
-      </div>
-
-      <div class="popular_Introduction">
-        <div>
-          <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
-          </div>
-          <div class="Commentator_info">
-            <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
-              <div class="message">
-                <Icon type="chatbox"></Icon>
-                <span>10</span>
-              </div>
-              <div class="wall"></div>
-            </div>
-            <div class="Commentator_time">31分钟前</div>
-          </div>
-        </div>
-        <div class="popular_Introduction_right">
-          图片
-        </div>
-      </div>
-
-      <div class="popular_Introduction">
-        <div>
-          <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
-          </div>
-          <div class="Commentator_info">
-            <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
-              <div class="message">
-                <Icon type="chatbox"></Icon>
-                <span>10</span>
-              </div>
-              <div class="wall"></div>
-            </div>
-            <div class="Commentator_time">31分钟前</div>
-          </div>
-        </div>
-        <div class="popular_Introduction_right">
-          图片
-        </div>
-      </div>
-
-      <div class="popular_Introduction">
-        <div>
-          <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
-          </div>
-          <div class="Commentator_info">
-            <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
-              <div class="message">
-                <Icon type="chatbox"></Icon>
-                <span>10</span>
-              </div>
-              <div class="wall"></div>
-            </div>
-            <div class="Commentator_time">31分钟前</div>
-          </div>
-        </div>
-        <div class="popular_Introduction_right">
-          图片
-        </div>
-      </div>
-
-      <div class="popular_Introduction">
-        <div>
-          <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
-          </div>
-          <div class="Commentator_info">
-            <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
-              <div class="message">
-                <Icon type="chatbox"></Icon>
-                <span>10</span>
-              </div>
-              <div class="wall"></div>
-            </div>
-            <div class="Commentator_time">31分钟前</div>
-          </div>
-        </div>
-        <div class="popular_Introduction_right">
-          图片
-        </div>
-      </div>
-
-      <div class="popular_Introduction">
-        <div>
-          <div class="popular_Introduction_left">
-            <p>《边境杀手》续集很燃很炸裂,但这还是原来的神作吗？</p>
-            <span> | 来自《世界的另一端》</span>
-          </div>
-          <div class="Commentator_info">
-            <div class="Commentator_info_left">
-              <div class="avatar">头像</div>
-              <div class="nickname">昵称</div>
-              <div class="message">
-                <Icon type="chatbox"></Icon>
-                <span>10</span>
-              </div>
-              <div class="wall"></div>
-            </div>
-            <div class="Commentator_time">31分钟前</div>
-          </div>
-        </div>
-        <div class="popular_Introduction_right">
-          图片
-        </div>
-      </div>
-
-
 
     </div>
-
-
   </div>
 </template>
 
@@ -434,8 +115,33 @@ export default {
   name: 'articlePage',
   data () {
     return {
-      
+      hotRecommendation: [],
+      authors: [],//推荐作者
     }
+  },
+  methods:{
+    godetail(){
+      this.$router.push({path: '/bannerdetailPage'})
+    }
+  },
+  created() {
+    // 热门推荐
+     this.$http.get("http://localhost:3000/hot").then(
+      res => {
+        console.log(res.data.data);
+        this.hotRecommendation = res.data.data;
+      },
+      err => {}
+    );
+
+    //推荐作者
+     this.$http.get("http://localhost:3000/author").then(
+      res => {
+        console.log(res.data.data);
+        this.authors = res.data.data;
+      },
+      err => {}
+    );
   }
 }
 </script>
@@ -461,6 +167,10 @@ h3{
   background-color: #E6E6FA;
   margin: 4% 4% 4% 4%;
 }
+.topic_image img{
+  width: 100%;
+  height: 100%;
+}
 
 /* 影片链接 */
 .movie_link{
@@ -485,18 +195,22 @@ h3{
   float: left;
   margin-right: 4%;
 }
+.movie_image img{
+  width: 100%;
+  height: 100%;
+}
 .movie_info{
   margin-top: 4%;
 }
 .playing{
   color: #FF8C00
 }
-.go_play{
+/* .go_play{
   margin-right: 4%;
   border: 1px solid;
   padding: 1% 4% 1% 4%;
   border-radius: 15px;
-}
+} */
 
 /* 列表 */
 .popular_Introduction{
@@ -534,7 +248,10 @@ h3{
   text-align: center;
   background-color: #FFFAFA;
 }
-
+.popular_Introduction_right img{
+  width: 100%;
+  height: 100%;
+}
 
 /* 推荐作者 */
 .Recommended_author{
@@ -575,6 +292,11 @@ li{
   text-align: center;
   line-height: 60px;
   margin: 0 auto;
+}
+.Recommended_avatar img{
+  width: 100%;
+  height: 100%;
+
 }
 .Recommended_name{
   font-weight: bold;
@@ -618,6 +340,11 @@ li{
   border: 1px solid;
   margin-left: 4%;
   float: left;
+}
+.avatar img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 .nickname,.message{
   margin-left: 4%;

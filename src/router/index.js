@@ -11,6 +11,10 @@ import loginPage from '../pages/loginPage'
 import signupPage from '../pages/signupPage'
 import forgetPage from '../pages/forgetPage'
 
+// 详情页面路由
+import bannerdetailPage from '../pages/detailPage/bannerdetailPage'
+import huatiPage from '../pages/detailPage/huatiPage'
+
 Vue.use(Router)
 
 export default new Router({
@@ -65,6 +69,18 @@ export default new Router({
       path: '/forgetPage',
       name: 'forgetPage',
       component: forgetPage,
+    },
+
+    // 详情页面路由
+    {
+      path: '/bannerdetailPage',
+      name: 'bannerdetailPage',
+      component: bannerdetailPage,
+    },
+    {
+      path: '/huatiPage',
+      name: 'huatiPage',
+      component: huatiPage,
     },
 
   ]
