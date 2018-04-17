@@ -19,20 +19,20 @@
 
     <!-- 话题，消息，文章，活动 -->
     <div class="Information_bar">
-      <div>
+      <div @click="huati">
         <Icon type="pound" class="icon"></Icon><br>
-        <span class="wenzi_name" @click="huati">话题</span>
+        <span class="wenzi_name">话题</span>
       </div>
-      <div>
+      <div @click="message">
         <Icon type="ios-email-outline"  class="icon"></Icon><br>
         <span class="wenzi_name">消息</span>
       </div>
-      <div>
+      <div @click="actirl">
         <Icon type="ios-paper-outline"  class="icon"></Icon><br>
         <span class="wenzi_name">文章</span>
       </div>
 
-      <div>
+      <div @click="activity">
           <Icon type="ios-pricetags-outline"  class="icon"></Icon><br>
           <span class="wenzi_name">活动</span>
       </div>
@@ -88,6 +88,28 @@ export default {
         this.isShowLogin = true;
       }
     },
+    message(){
+      if (this.user_name) {
+              this.$router.push({path: '/huatiPage'})
+          } else {
+            this.isShowLogin = true;
+      }
+    },
+    actirl(){
+      if (this.user_name) {
+              this.$router.push({path: '/huatiPage'})
+          } else {
+            this.isShowLogin = true;
+      } 
+    },
+    activity(){
+      if (this.user_name) {
+              this.$router.push({path: '/huatiPage'})
+          } else {
+            this.isShowLogin = true;
+      } 
+    },
+
 
     goSettingPsge(){
       this.$router.push({path: '/settingPage'})

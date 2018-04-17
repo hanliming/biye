@@ -37,7 +37,7 @@
             <span class="img_gif_icon" style="height: 200px;">
                 <span class="gif_wait_play">
                     </span></span>
-                    <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/72/a9f489d95bdc4a208d3d9991f06f6172.jpg" ds-width="400" ds-height="220" ds-ratio="0.55" src="http://image.dushemovie.com/other/20180328/72/a9f489d95bdc4a208d3d9991f06f6172.jpg" style="height: 200px; width: 280px;">
+                    <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/72/a9f489d95bdc4a208d3d9991f06f6172.jpg" ds-width="280" ds-height="220" ds-ratio="0.55" src="http://image.dushemovie.com/other/20180328/72/a9f489d95bdc4a208d3d9991f06f6172.jpg" style="height: 200px; width: 280px;">
         </p>
         <p>
             <span style="font-size: 14px; color: rgb(127, 127, 127);">伊沃里还拿自己作品做挡箭牌，而不是导演作品</span>
@@ -53,7 +53,7 @@
             <span class="img_gif_icon" style="height: 200px;">
                 <span class="gif_wait_play">
                     </span></span>
-                    <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/10/c776b9f98cb74066955dda36f2fee810.jpg" ds-width="400" ds-height="227" ds-ratio="0.5675" style="height: 200px; width: 400px;" src="http://image.dushemovie.com/other/20180328/10/c776b9f98cb74066955dda36f2fee810.jpg"></p>
+                    <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/10/c776b9f98cb74066955dda36f2fee810.jpg" ds-width="280" ds-height="227" ds-ratio="0.5675" style="height: 200px; width: 280px;" src="http://image.dushemovie.com/other/20180328/10/c776b9f98cb74066955dda36f2fee810.jpg"></p>
                     <p class="">
                         <span style="font-size: 14px; color: rgb(127, 127, 127);">圭达尼诺是CMBYN导演，所以他会给女性角色裸露镜头</span>
                         </p>
@@ -63,7 +63,7 @@
             <span class="img_gif_icon" style="height: 200px;">
                 <span class="gif_wait_play">
                     </span></span>
-                    <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/aa/4b3c548867b24a6b80ce8e52c0f952aa.jpg" ds-width="400" ds-height="224" ds-ratio="0.56" style="height: 200px; width: 400px;" src="http://image.dushemovie.com/other/20180328/aa/4b3c548867b24a6b80ce8e52c0f952aa.jpg"></p>
+                    <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/aa/4b3c548867b24a6b80ce8e52c0f952aa.jpg" ds-width="280" ds-height="224" ds-ratio="0.56" style="height: 200px; width: 280px;" src="http://image.dushemovie.com/other/20180328/aa/4b3c548867b24a6b80ce8e52c0f952aa.jpg"></p>
                     <p>
                         <span style="color: rgb(127, 127, 127); font-size: 14px;">如果这是伊沃里的作品，就会给两位男主给裸露镜头</span><br>
                         </p>
@@ -77,7 +77,7 @@
             <span class="img_gif_icon" style="height: 200px;">
                 <span class="gif_wait_play">
                     </span></span>
-                    <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/86/43d4ab4475924add8e9301b50adbd686.jpg" ds-width="400" ds-height="221" ds-ratio="0.5525" style="height: 200px; width: 280px;" src="http://image.dushemovie.com/other/20180328/86/43d4ab4475924add8e9301b50adbd686.jpg"></p>
+                    <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/86/43d4ab4475924add8e9301b50adbd686.jpg" ds-width="280" ds-height="221" ds-ratio="0.5525" style="height: 200px; width: 280px;" src="http://image.dushemovie.com/other/20180328/86/43d4ab4475924add8e9301b50adbd686.jpg"></p>
                     <p>
                         <span style="font-size: 14px; color: rgb(127, 127, 127);">《莫里斯》的正面全裸镜头</span>
                         </p>
@@ -90,7 +90,7 @@
                 <span class="gif_wait_play">
                 </span>
             </span>
-            <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/98/9817873ab64346d79f06a3a93a809998.jpg" ds-width="400" ds-height="597" ds-ratio="1.4925" style="height: 200px; width: 280px;" src="http://image.dushemovie.com/other/20180328/98/9817873ab64346d79f06a3a93a809998.jpg"></p>
+            <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/98/9817873ab64346d79f06a3a93a809998.jpg" ds-width="280" ds-height="597" ds-ratio="1.4925" style="height: 200px; width: 280px;" src="http://image.dushemovie.com/other/20180328/98/9817873ab64346d79f06a3a93a809998.jpg"></p>
             <p>
             <span style="font-size: 14px; color: rgb(127, 127, 127);">伊沃里的奥斯卡导演奖提名作品之一，《告别有情天》，由安东尼·霍普金斯和艾玛·汤普森主演。</span></p>
             <p><br></p>
@@ -105,7 +105,7 @@
             <span class="img_gif_icon" style="height: 200px;">
                 <span class="gif_wait_play">
                     </span></span>
-                    <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/9a/554c1cec8a304d3a9aa93bb498186e9a.jpg" ds-width="400" ds-height="264" ds-ratio="0.66" style="height: 200px; width: 280px;" src="http://image.dushemovie.com/other/20180328/9a/554c1cec8a304d3a9aa93bb498186e9a.jpg"></p>
+                    <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/9a/554c1cec8a304d3a9aa93bb498186e9a.jpg" ds-width="280" ds-height="264" ds-ratio="0.66" style="height: 200px; width: 280px;" src="http://image.dushemovie.com/other/20180328/9a/554c1cec8a304d3a9aa93bb498186e9a.jpg"></p>
                     <p>
                         <span style="color:#7f7f7f">
                             <span style="font-size: 14px;">伊沃里可谓是最佳原创剧本奖项获奖者中最年长的人</span>
@@ -119,7 +119,7 @@
                 <span class="gif_wait_play">
                 </span>
             </span>
-            <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/a0/27059db260bc42a68aac99531d3ab8a0.jpg" ds-width="400" ds-height="216" ds-ratio="0.54" style="height: 200px; width: 280px;" src="http://image.dushemovie.com/other/20180328/a0/27059db260bc42a68aac99531d3ab8a0.jpg"></p>
+            <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/a0/27059db260bc42a68aac99531d3ab8a0.jpg" ds-width="280" ds-height="216" ds-ratio="0.54" style="height: 200px; width: 280px;" src="http://image.dushemovie.com/other/20180328/a0/27059db260bc42a68aac99531d3ab8a0.jpg"></p>
             <p>
                 <span style="font-size: 14px; color: rgb(127, 127, 127);">圭达尼诺对于正面全裸确实没有避讳过，在《我是爱》当中大胆展露自己女神蒂尔达·斯文顿的美胸</span></p>
                 <p><br></p>
@@ -133,7 +133,7 @@
         <div class="touxiang">
             <img src="../../assets/touxiang.jpg" alt="">
         </div>
-        <input type="text" placeholder="我来说两句" @click="inputClick">
+        <input type="text" placeholder="我来说两句" @click="inputClick" v-model="modal10">
         <template>
             <Badge count="3" class="icon_box">
                 <Icon type="chatboxes"></Icon>
@@ -153,6 +153,14 @@
             </div>
         </template>
     </footer>
+
+    <template>
+         <Modal
+            v-model="modal10"
+            class-name="vertical-center-modal">
+            <input type="text" placeholder="我来说两句(500字以内)" class="input_fabu">
+        </Modal>
+    </template>
     <popups-component v-if="isShowLogin" @setState="setState"></popups-component>
 
 
@@ -171,6 +179,7 @@ export default {
       return {
         user_name: '',
         isShowLogin:false,//true显示
+        modal10: false,//我来说两句
       }
   },
   methods:{
@@ -180,6 +189,8 @@ export default {
       inputClick(){
           if(!this.user_name){
             this.isShowLogin = true
+          }else{
+              this.modal10 = true;
           }
       },
       zan(){
@@ -211,15 +222,15 @@ body{
     padding: 0;
 }
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 4%;
   border-bottom: 1px solid #e6e6fa;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
   background-color: white;
 
 }
@@ -303,7 +314,7 @@ p,
 }
 .p_img .img_gif_icon {
   position: absolute;
-  width: 100%;
+  width: 92%;
 }
 .art_container .p_img img {
   float: left;
@@ -322,7 +333,7 @@ p,
 }
 .p_img .img_gif_icon {
   position: absolute;
-  width: 100%;
+  width: 92%;
 }
 
 /* footer */
@@ -364,6 +375,10 @@ footer .icon_box {
 }
 .ivu-icon-ios-heart-outline:before {
   font-size: 38px;
+}
+.input_fabu{
+    width: 100%;
+    height: 100px;
 }
 </style>
 

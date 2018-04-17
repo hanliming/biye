@@ -10,6 +10,7 @@ import popupsComponent from '../pages/popupsComponent'
 import loginPage from '../pages/loginPage'
 import signupPage from '../pages/signupPage'
 import forgetPage from '../pages/forgetPage'
+import feedbackPage from '../pages/feedbackPage'
 
 // 详情页面路由
 import bannerdetailPage from '../pages/detailPage/bannerdetailPage'
@@ -70,6 +71,13 @@ export default new Router({
       name: 'forgetPage',
       component: forgetPage,
     },
+    {
+      path: '/feedbackPage',
+      name: 'feedbackPage',
+      component: feedbackPage,
+    },
+
+
 
     // 详情页面路由
     {

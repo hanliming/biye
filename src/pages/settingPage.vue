@@ -45,7 +45,7 @@
             </template>
         </li>
 
-        <li>
+        <li @click="modal10 = true">
             <div class="icon_div">
                 <Icon type="ios-loop" class="li_icon"></Icon>
                 <div class="title">版本检测</div>
@@ -54,9 +54,17 @@
                <Icon type="ios-arrow-right" class="li_icon"></Icon>
             </template>
         </li>
+        <template>
+            <Modal
+                v-model="modal10"
+                class-name="vertical-center-modal">
+                <h3>版本检测</h3>
+                <p>当前已是最新版本</p>
+            </Modal>
+        </template>
 
         
-        <li>
+        <li @click="info">
             <div class="icon_div">
                 <Icon type="ios-trash-outline" class="li_icon"></Icon>
                 <div class="title">清理缓存</div>
@@ -106,7 +114,8 @@ export default {
     return {
        switch1: false,
        user_name:'',
-       isShowLogin:false
+       isShowLogin:false,
+       modal10: false,//版本检测
     }
   },
   methods:{
@@ -124,6 +133,10 @@ export default {
       exit () {
           window.localStorage.clear()
           this.$router.push({name:'userPage'})
+      },
+      //清理缓存
+      info (){
+          this.$Message.info('清理成功');
       }
   },
   created () {
@@ -172,6 +185,9 @@ li{
     align-items: center;
     margin-top: 4%;
     border-bottom: 1px solid #F5F5F5;
+}
+.ivu-modal-body{
+    text-align: center;
 }
 .icon_div{
     width: 65%;
