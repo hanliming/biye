@@ -1,51 +1,176 @@
 <template>
-    <div class="feedback">
+    <div class="commentsLists">
         <div class="header">
             <div>
                 <Icon type="ios-arrow-left"></Icon> 
             </div>
-            <h4>用户反馈</h4>
-            <div class="commit" :class="{active : isActive}" @click="commit">提交</div>
+            <h4>评论列表</h4>
+            <div></div>
         </div>
         <div class="content">
-            <p>问题描述</p>
-            <input type="textarea" placeholder="请详细的描述您所遇到的问题或建议" class="feedbackInput" v-model="question" @blur="onblur">
+            <div class="topicInfo">
+                <div class="imageBox">
+                    <img src="" alt="">
+                </div>
+                <div class="title">《CMBYN》还真打算拍裸体镜头！甜茶“躲”过一劫</div>
+            </div>
+        </div>
+        <div class="dividing_line"></div>
+        <div class="commentBox">
+            <ul>
+                <li>
+                    <div class="touxiang">
+                        <img src="" alt="">
+                    </div>
+                    <div class="right_comment">
+                        <div class="nicknameBox">
+                            <div>
+                                <div class="nicheng">昵称</div>
+                                <div class="time">时间</div>
+                            </div>
+                            <div class="zanBox">
+                                <span>10</span>
+                                <Icon type="thumbsup"></Icon>
+                            </div>
+                        </div>
+                        <div class="comment">评论内容评论内容评论内容评论内容评论内容评论内容</div>
+                    </div>
+                </li>
 
-            <p>联系方式</p>
-            <input type="textarea" placeholder="请留下您的联系方式(QQ/微信/电话/等)" class="connection" v-model="connect" @blur="onblur">
+                                <li>
+                    <div class="touxiang">
+                        <img src="" alt="">
+                    </div>
+                    <div class="right_comment">
+                        <div class="nicknameBox">
+                            <div>
+                                <div class="nicheng">昵称</div>
+                                <div class="time">时间</div>
+                            </div>
+                            <div>点赞</div>
+                        </div>
+                        <div class="comment">评论内容评论内容评论内容评论内容评论内容评论内容</div>
+                    </div>
+                </li>
+
+                                <li>
+                    <div class="touxiang">
+                        <img src="" alt="">
+                    </div>
+                    <div class="right_comment">
+                        <div class="nicknameBox">
+                            <div>
+                                <div class="nicheng">昵称</div>
+                                <div class="time">时间</div>
+                            </div>
+                            <div>点赞</div>
+                        </div>
+                        <div class="comment">评论内容评论内容评论内容评论内容评论内容评论内容</div>
+                    </div>
+                </li>
+
+                                <li>
+                    <div class="touxiang">
+                        <img src="" alt="">
+                    </div>
+                    <div class="right_comment">
+                        <div class="nicknameBox">
+                            <div>
+                                <div class="nicheng">昵称</div>
+                                <div class="time">时间</div>
+                            </div>
+                            <div>点赞</div>
+                        </div>
+                        <div class="comment">评论内容评论内容评论内容评论内容评论内容评论内容</div>
+                    </div>
+                </li>
+
+                                <li>
+                    <div class="touxiang">
+                        <img src="" alt="">
+                    </div>
+                    <div class="right_comment">
+                        <div class="nicknameBox">
+                            <div>
+                                <div class="nicheng">昵称</div>
+                                <div class="time">时间</div>
+                            </div>
+                            <div>点赞</div>
+                        </div>
+                        <div class="comment">评论内容评论内容评论内容评论内容评论内容评论内容</div>
+                    </div>
+                </li>
+
+                                <li>
+                    <div class="touxiang">
+                        <img src="" alt="">
+                    </div>
+                    <div class="right_comment">
+                        <div class="nicknameBox">
+                            <div>
+                                <div class="nicheng">昵称</div>
+                                <div class="time">时间</div>
+                            </div>
+                            <div>点赞</div>
+                        </div>
+                        <div class="comment">评论内容评论内容评论内容评论内容评论内容评论内容</div>
+                    </div>
+                </li>
+
+                                <li>
+                    <div class="touxiang">
+                        <img src="" alt="">
+                    </div>
+                    <div class="right_comment">
+                        <div class="nicknameBox">
+                            <div>
+                                <div class="nicheng">昵称</div>
+                                <div class="time">时间</div>
+                            </div>
+                            <div>点赞</div>
+                        </div>
+                        <div class="comment">评论内容评论内容评论内容评论内容评论内容评论内容</div>
+                    </div>
+                </li>
+
+                                <li>
+                    <div class="touxiang">
+                        <img src="" alt="">
+                    </div>
+                    <div class="right_comment">
+                        <div class="nicknameBox">
+                            <div>
+                                <div class="nicheng">昵称</div>
+                                <div class="time">时间</div>
+                            </div>
+                            <div>点赞</div>
+                        </div>
+                        <div class="comment">评论内容评论内容评论内容评论内容评论内容评论内容</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <div class="my_touxiang">
+                头像
+            </div>
+            <input type="text" placeholder="我来说两句">
         </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'feedbackPage',
+  name: 'commentListsPage',
   data () {
     return {
-        isActive: false,//是否有文字输入
-        question: '',
-        connect: '',
+        
        
     }
   },
   methods:{
-      onblur(){
-          if(this.question != '' || this.connect != ''){
-              this.isActive = true;
-          }
-      },
-      commit(){
-          if( this.isActive == true){
-              alert('可以提交');
-              this.question = '';
-              this.connect = '';
-              this.isActive = false;
-          }else{
-              alert('请先填写信息再提交');
-          }
-      }
-    
-   
+
   }
 }
 </script>
@@ -58,36 +183,102 @@ export default {
     padding: 8% 4%;
     font-size: 20px;
 }
-.commit{
-    color: gray;
-}
-.active{
-    color: black;
-}
+
 .content{
     padding-left: 4%;
     padding-right:4%; 
 }
-.content p{
-    font-size: 18px;
-    color: gray;
-    margin-bottom: 4%;
-}
-.content input{
+.topicInfo{
     width: 100%;
-}
-.feedbackInput{
     height: 120px;
-    margin-bottom: 8%;
-    border: none;
-    background-color: #ccc;
+    background-color: #eee;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
 }
-.connection{
-    height: 45px;
-    border: none;
-    background-color: #ccc;
+.imageBox{
+    width: 130px;
+    height: 120px;
+    background-color:#ccc;
+    padding: 8px;
 }
-
+.title{
+    padding-top: 8px;
+    line-height: 30px;
+    font-size: 18px;
+}
+.dividing_line{
+    width: 100%;
+    height: 5px;
+    background-color: #eee;
+    margin-top: 10px;
+}
+.commentBox{
+    padding-left: 4%;
+    padding-right:4%; 
+    padding-bottom: 60px;
+}
+ul{
+    list-style: none;
+}
+li,.nicknameBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+li{
+    margin-top: 4%;
+}
+.touxiang{
+    width: 80px;
+    height: 80px;
+    background-color: #eee;
+    margin-right: 4%;
+}
+.right_comment{
+    border-bottom: 1px solid #eee;
+    padding-bottom: 4%;
+}
+.nicheng{
+    font-size: 18px;
+}
+.time{
+    font-size: 14px;
+}
+.zanBox{
+    font-size: 16px;
+}
+.comment{
+    font-size: 16px;
+}
+.footer{
+    width: 100%;
+    height: 60px;
+    background-color: red;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+.my_touxiang{
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+}
+input{
+    width: 75%;
+    margin-left: 4%;
+    height: 35px;
+    background-color: #eee;
+    border-radius: 20px;
+    border: none;
+    padding-left: 2%;
+}
+input:focus{
+    outline: none;
+}
 </style>
 
 

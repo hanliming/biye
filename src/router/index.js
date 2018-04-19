@@ -15,6 +15,7 @@ import feedbackPage from '../pages/feedbackPage'
 // 详情页面路由
 import bannerdetailPage from '../pages/detailPage/bannerdetailPage'
 import huatiPage from '../pages/detailPage/huatiPage'
+import commentListsPage from '../pages/detailPage/commentsLists'
 
 Vue.use(Router)
 
@@ -89,6 +90,11 @@ export default new Router({
       path: '/huatiPage',
       name: 'huatiPage',
       component: huatiPage,
+    },
+    {
+      path: '/commentListsPage',
+      name: 'commentListsPage',
+      component: commentListsPage,
     },
 
   ]
