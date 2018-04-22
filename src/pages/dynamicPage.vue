@@ -244,6 +244,10 @@ export default {
 .ivu-btn-primary:hover{
   border-color: #DCDCDC;
 }
+li[data-v-3de72fc0]{
+  width: 25%;
+  text-align: center;
+}
 
 /* 热门圈子 */
 .hot_circles{

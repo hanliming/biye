@@ -1,7 +1,7 @@
 <template>
     <div class="commentsLists">
         <div class="header">
-            <div>
+            <div @click="goBack">
                 <Icon type="ios-arrow-left"></Icon> 
             </div>
             <h4>评论列表</h4>
@@ -155,8 +155,16 @@
             <div class="my_touxiang">
                 头像
             </div>
-            <input type="text" placeholder="我来说两句">
+            <input type="text" placeholder="我来说两句" @click="inputClick">
         </div>
+
+        <template>
+            <Modal
+                v-model="modal10"
+                class-name="vertical-center-modal">
+                <textarea name="" id="" cols="30" rows="10"  placeholder="我来说两句(500字以内)" class="input_fabu"></textarea>
+            </Modal>
+        </template>
     </div>
 </template>
 
@@ -165,12 +173,16 @@ export default {
   name: 'commentListsPage',
   data () {
     return {
-        
-       
+        modal10: false,//我来说两句  
     }
   },
   methods:{
-
+    goBack () {
+        this.$router.go(-1);
+    },
+    inputClick () {
+        this.modal10 = true;
+    },
   }
 }
 </script>
@@ -254,7 +266,7 @@ li{
 .footer{
     width: 100%;
     height: 60px;
-    background-color: red;
+    background-color: white;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -277,6 +289,17 @@ input{
     padding-left: 2%;
 }
 input:focus{
+    outline: none;
+}
+.input_fabu{
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+    border: none;
+    background-color: #eee;
+    font-size: 16px;
+}
+.input_fabu:focus{
     outline: none;
 }
 </style>

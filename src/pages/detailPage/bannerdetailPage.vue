@@ -133,32 +133,32 @@
         <div class="touxiang">
             <img src="../../assets/touxiang.jpg" alt="">
         </div>
-        <input type="text" placeholder="我来说两句" @click="inputClick" v-model="modal10">
-        <template>
-            <Badge count="3" class="icon_box">
-                <Icon type="chatboxes"></Icon>
-            </Badge>
-        </template>
-         <template>
+        <input type="text" placeholder="我来说两句" @click="inputClick">
+        <div @click="goCommentsLists">
+                <Badge count="3" class="icon_box">
+                    <Icon type="chatboxes"></Icon>
+                </Badge>
+        </div>
+         <div>
             <Badge count="3">
                 <div @click="zan">
                     <Icon type="thumbsup"></Icon>
                 </div>
                 
             </Badge>
-        </template>
-        <template>
+        </div>
+        <div>
             <div @click="guanzhu"  class="icon_box">
                 <Icon type="ios-heart-outline"></Icon>
             </div>
-        </template>
+        </div>
     </footer>
 
     <template>
          <Modal
             v-model="modal10"
             class-name="vertical-center-modal">
-            <input type="text" placeholder="我来说两句(500字以内)" class="input_fabu">
+            <textarea name="" id="" cols="30" rows="10"  placeholder="我来说两句(500字以内)" class="input_fabu"></textarea>
         </Modal>
     </template>
     <popups-component v-if="isShowLogin" @setState="setState"></popups-component>
@@ -193,9 +193,18 @@ export default {
               this.modal10 = true;
           }
       },
+      goCommentsLists () {
+        if(!this.user_name){
+                this.isShowLogin = true
+            }else{
+                this.$router.push({path: '/commentListsPage'})
+        }
+      },
       zan(){
         if(!this.user_name){
             this.isShowLogin = true
+        }else{
+
         }
       },
       guanzhu(){
@@ -339,7 +348,7 @@ p,
 /* footer */
 footer {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   align-items: center;
   height: 60px;
   background-color: white;
@@ -349,7 +358,7 @@ footer {
   z-index: 9999;
   width: 100%;
   padding-left: 4%;
-  margin-right: 4%;
+  padding-right: 4%;
 }
 footer .touxiang {
   width: 30px;
@@ -363,6 +372,12 @@ footer .touxiang img {
 footer input {
   width: 45%;
   padding: 2%;
+  background-color: #eee;
+  border: none;
+  border-radius: 50px;
+}
+footer input:focus{
+    outline: none;
 }
 footer .icon_box {
   margin: 0 4% 0 4%;
@@ -379,6 +394,13 @@ footer .icon_box {
 .input_fabu{
     width: 100%;
     height: 100px;
+    margin-top: 20px;
+    border: none;
+    background-color: #eee;
+    font-size: 16px;
+}
+.input_fabu:focus{
+    outline: none;
 }
 </style>
 

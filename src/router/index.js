@@ -16,6 +16,25 @@ import feedbackPage from '../pages/feedbackPage'
 import bannerdetailPage from '../pages/detailPage/bannerdetailPage'
 import huatiPage from '../pages/detailPage/huatiPage'
 import commentListsPage from '../pages/detailPage/commentsLists'
+import cinemaLineupPage from '../pages/detailPage/cinemaLineupPage'
+import allKindsPage from '../pages/detailPage/allKindsPage'
+import leaderboardPage from '../pages/detailPage/leaderboardPage'
+import dailyRecommendation from '../pages/detailPage/dailyRecommendation'
+
+import customMadePage from '../pages/detailPage/customMadePage'
+import dailEightMovies from '../pages/detailPage/dailEightMovies'
+
+import monthRecommendation from '../pages/detailPage/monthRecommendation'
+
+//组件页面
+import filmingComponent from '../pages/components/filmingComponent'
+import comingsoonComponent from '../pages/components/comingsoonComponent'
+
+import tonguelistComponent from '../pages/components/tonguelistComponent'
+
+import redlistComponent from '../pages/components/redlistComponent'
+
+
 
 Vue.use(Router)
 
@@ -77,6 +96,31 @@ export default new Router({
       name: 'feedbackPage',
       component: feedbackPage,
     },
+    //组件页面
+    {
+      path: '/filmingComponent',
+      name: 'filmingComponent',
+      component: filmingComponent,
+      
+    },
+    {
+      path: '/comingsoonComponent',
+      name: 'comingsoonComponent',
+      component: comingsoonComponent,
+    },
+    {
+      path: '/tonguelistComponent',
+      name: 'tonguelistComponent',
+      component: tonguelistComponent,
+      
+    },
+    {
+      path: '/redlistComponent',
+      name: 'redlistComponent',
+      component: redlistComponent,
+    },
+
+
 
 
 
@@ -96,6 +140,46 @@ export default new Router({
       name: 'commentListsPage',
       component: commentListsPage,
     },
+    {
+      path: '/cinemaLineupPage',
+      name: 'cinemaLineupPage',
+      component: cinemaLineupPage,
+    },
+    {
+      path: '/allKindsPage',
+      name: 'allKindsPage',
+      component: allKindsPage,
+    },
+    {
+      path: '/leaderboardPage',
+      name: 'leaderboardPage',
+      component: leaderboardPage,
+    },
+    
+    {
+      path: '/dailyRecommendation',
+      name: 'dailyRecommendation',
+      component: dailyRecommendation,
+    },
+    
+    {
+      path: '/customMadePage',
+      name: 'customMadePage',
+      component: customMadePage,
+    },
+    
+    {
+      path: '/dailEightMovies',
+      name: 'dailEightMovies',
+      component: dailEightMovies,
+    },
+    
+    {
+      path: '/monthRecommendation',
+      name: 'monthRecommendation',
+      component: monthRecommendation,
+    },
+
 
   ]
 })

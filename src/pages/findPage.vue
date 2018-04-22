@@ -5,14 +5,14 @@
         <Icon type="ios-search" class="input_icon"></Icon>
         <span>查找影片、影评、影单、影人</span>
      </div>
-     <div class="header_kind">分类</div>
+     <div class="header_kind" @click="goKindPage">分类</div>
      <div class="wall"></div>
    </div>
 
    <div class="cinema_lineup"> 
      <div class="cinema_lineup_box">
        <Icon type="android-print" class="cinema_lineup_icon"></Icon>
-       <div>院线热映</div>
+       <div @click="goCinema">院线热映</div>
        <span>热映院线电影抢先看</span>
      </div>
      <div>|</div>
@@ -21,7 +21,6 @@
        <div>观影活动</div>
        <span>海量观影活动任你选</span>
      </div>
-     <div class=""></div>
    </div>
 
   <!-- 毒舌榜 -->
@@ -35,7 +34,7 @@
           <div class="leaderboard_list_middle leaderboard_list_div">图片</div>
           <div class="leaderboard_list_right leaderboard_list_div">
             <p>环太平洋2: 雷霆再起</p>
-            <div>
+            <div class="about_sorce">
               <span>评分 <span class="score">5.7</span></span>
               <span class="comments_count">302人评论</span>
             </div>
@@ -69,7 +68,7 @@
           </div>
           <div class="wall"></div>
         </div>
-        <div class="leftover_twenty">查看完整的20部</div>
+        <div class="leftover_twenty" @click="lookAll">查看完整的20部</div>
         </div>
 
       <div class="leaderboard_rows_lists">
@@ -113,7 +112,7 @@
           </div>
           <div class="wall"></div>
         </div>
-       <div class="leftover_twenty">查看完整的20部</div>
+       <div class="leftover_twenty" @click="lookAll">查看完整的20部</div>
       </div>
       <div class="leaderboard_rows_lists">
         <h4>热剧榜</h4>
@@ -156,9 +155,9 @@
           </div>
           <div class="wall"></div>
         </div>
-       <div class="leftover_twenty">查看完整的20部</div>
+       <div class="leftover_twenty" @click="lookAll">查看完整的20部</div>
       </div>
-      <div class="leaderboard_rows_lists leaderboard_rows_lists_last">
+      <div class="leaderboard_rows_lists leaderboard_rows_lists_last" @click="lookAll">
         <div>
         <Icon type="chevron-right"></Icon>          
         </div>
@@ -170,8 +169,8 @@
   </div>
 
    <div class="day_and_month">
-     <div>每日电影推荐</div>
-     <div>本月观影指南</div>
+     <div @click="daySource">每日电影推荐</div>
+     <div @click="monthSource">本月观影指南</div>
    </div>
 
    <div class="big_image">
@@ -213,6 +212,21 @@ export default {
   methods: {
     goSearchPage(){
       this.$router.push({path: '/searchPage'})
+    },
+    goCinema(){
+      this.$router.push({path: '/cinemaLineupPage'})
+    },
+    goKindPage(){
+      this.$router.push({path: '/allKindsPage'})
+    },
+    lookAll() {
+      this.$router.push({path: '/leaderboardPage'})
+    },
+    daySource(){
+      this.$router.push({path: '/dailyRecommendation'})
+    },
+    monthSource(){
+      this.$router.push({path: '/monthRecommendation'})
     }
   },
   created(){
@@ -266,6 +280,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   height: 60px;
   border-bottom: 5px solid gainsboro;
   padding: 100px 4% 8% 4%;
@@ -306,7 +321,7 @@ export default {
   margin-right: 2%;
 }
 h4{
-  font-size: 18px;
+  font-size: 14px;
 }
 .leaderboard_list_div{
   float: left;
@@ -317,11 +332,12 @@ h4{
   border-bottom-width: 1%;
 }
 .leaderboard_list_right p{
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
+  /* font-weight: bold; */
 }
 .leaderboard_list_right div{
-  font-size: 14px;
+  font-size: 12px;
+  color: gray;
 }
 .score{
   color: #ffa400;
@@ -337,18 +353,18 @@ h4{
 }
 
 .leaderboard_rows_lists_last div{
-  font-size: 42px;
+  font-size: 32px;
   margin-top: 25%;
   margin-left: 15%;
-  width: 95px;
-  height: 95px;
-  line-height: 95px;
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
   border-radius: 50%;
   text-align: center;
   background-color: #e9e7ef;
 }
 .leaderboard_rows_lists_last p{
-  font-size: 18px;
+  font-size: 16px;
   margin-left: 15%;
   margin-top: 4%;
 }
