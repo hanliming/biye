@@ -1,5 +1,5 @@
 <template>
-  <div class="userPage">
+  <div class="userPage" v-if="$route.name == 'Mine'">
     <div class="header">
       <div></div>
       <p>我的</p>
@@ -12,7 +12,7 @@
 
     <div v-else class="userInfo_box">
       <div class="touxiang">
-        <img src="../assets/touxiang.jpg" alt="">
+        <!-- <img src="../assets/touxiang.jpg" alt=""> -->
       </div>
       <div class="hello">{{user_name}},您好！</div>
     </div>
@@ -57,21 +57,19 @@
       <div>+</div>
       <span>添加收藏片单</span>
     </div>
-    
-    <footer-component></footer-component>
-
+  </div>
+  <div v-else>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import footerComponent from './footerComponent'
-import popupsComponent from './popupsComponent'
+// import popupsComponent from './popupsComponent'
 
 export default {
   name: 'userPage',
   components: {
-    footerComponent,
-    popupsComponent,
+    // popupsComponent,
   },
   data () {
     return {
@@ -112,7 +110,7 @@ export default {
 
 
     goSettingPsge(){
-      this.$router.push({path: '/settingPage'})
+      this.$router.push({name: 'SettingPage'})
     },
     loginBtn(){
       this.isShowLogin = !this.isShowLogin;

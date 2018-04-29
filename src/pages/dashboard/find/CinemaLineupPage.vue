@@ -1,6 +1,5 @@
 <template>
   <div class="settingPage">
-    <!-- 设置 返回 -->
     <div class="header">
         <div @click="goback">
             <Icon type="ios-arrow-left" class="cancel"></Icon>
@@ -19,16 +18,14 @@
             </TabPane>
         </Tabs>
     </div>
-
-
   </div>
 </template>
 
 <script>
-import filmingComponent from '../components/filmingComponent'
-import comingsoonComponent from '../components/comingsoonComponent'
+import filmingComponent from './cinemalineuppage/filmingComponent'
+import comingsoonComponent from './cinemalineuppage/comingsoonComponent'
 export default {
-  name: 'cinemaLineupPage',
+  name: 'cinemaLineupPage', 
   components: {
     filmingComponent,
     comingsoonComponent,
@@ -71,7 +68,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 /* 头部 返回 */
 .header{
   display: flex;

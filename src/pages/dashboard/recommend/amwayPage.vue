@@ -45,7 +45,7 @@ export default {
 
   methods:{
     godetail(){
-      this.$router.push({path: '/bannerdetailPage'})
+      // this.$router.push({path: '/bannerdetailPage'})
     }
   },
   created(){

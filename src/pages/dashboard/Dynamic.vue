@@ -1,39 +1,20 @@
 <template>
-  <div class="dynamicPage">
-       <!-- 头部 -->
+  <div class="dynamicPage" v-if="$route.name == 'Dynamic'">
     <div class="header">
-      <Icon type="ios-personadd-outline" class="header_icon"></Icon>
-      <p>关注动态</p>
-      <template>
-        <Dropdown style="margin-left: 20px">
-            <Button type="primary">
-                全部
-                <Icon type="arrow-down-b"></Icon>
-            </Button>
-            <DropdownMenu slot="list">
-                <DropdownItem>全部</DropdownItem>
-                <DropdownItem>认证用户</DropdownItem>
-                <DropdownItem>普通用户</DropdownItem>
-            </DropdownMenu>
-        </Dropdown>
-      </template>
+      <span>动态 / 评论</span>
+    </div>
+    <div class="edit" @click="createDynamic"><Icon type="edit"></Icon></div>
+
+    <div class="dynamic">
+
+    </div>
+    <div class="comment">
+
     </div>
 
-    <!-- 热门圈子 -->
-    <div class="hot_circles">
-      <div class="hot_circles_title">
-        <div>热门圈子</div>
-        <div>更多 <Icon type="ios-arrow-right"></Icon></div>
-      </div>
-      <div class="hot_circles_link">
-        <div>影视圈</div>
-        <div>闲聊圈</div>
-      </div>
-      <div class="wall"></div>
-    </div>
 
     <!-- 话题文章 -->
-    <div class="content" v-for="(item,index) in hotRecommendation" v-if="index <= 1">
+    <!-- <div class="content" v-for="(item,index) in hotRecommendation" v-if="index <= 1">
       <div class="avatar_and_nickname"> 
           <div class="avatar_box">
             <div class="avatar">
@@ -45,7 +26,6 @@
             </div>
             <div class="classification">{{item.comment}}</div>
           </div>
-          <div class="follow go_play"><span>+</span>关注</div>
       </div>
       <div class="wall"></div>
       <template class="score">
@@ -63,9 +43,9 @@
       <div class="hotnews_photoes">
         <div class="photo">
           <img :src="item.img" alt="">
-        </div>
+        </div> -->
         <!-- 影片链接 -->
-        <div class="movie_link">
+        <!-- <div class="movie_link">
           <div class="movie_link_left">
             <div class="movie_image">
               <img :src="item.small_image" alt="">
@@ -74,23 +54,22 @@
               <span>{{item.kinds}}</span>
             </div>
           </div>
-          <div class="go_play">观看</div>
-        </div>
+        </div> -->
 
 
         <!-- 点赞和评论 -->
-        <div class="attention">
+        <!-- <div class="attention">
           <div class="like"><Icon type="thumbsup"></Icon> <span>1</span></div>
           <div>/</div>
           <div class="comments"><Icon type="chatbox-working"></Icon> <span>2</span></div>
         </div>
         
       </div>
-    </div>
+    </div> -->
 
 
     <!-- 推荐热评 -->
-    <div class="recommended_hot_review">
+    <!-- <div class="recommended_hot_review">
       <p class="hot_review_title">推荐热评</p>
       <div class="hot_review_box">
         <ul>
@@ -157,9 +136,9 @@
       <div class="hotnews_photoes">
         <div class="photo">
           <img :src="item.img" alt="">
-        </div>
+        </div> -->
         <!-- 影片链接 -->
-        <div class="movie_link">
+        <!-- <div class="movie_link">
           <div class="movie_link_left">
             <div class="movie_image">
               <img :src="item.small_image" alt="">
@@ -169,38 +148,34 @@
             </div>
           </div>
           <div class="go_play">观看</div>
-        </div>
-
-
+        </div> -->
         <!-- 点赞和评论 -->
-        <div class="attention">
+        <!-- <div class="attention">
           <div class="like"><Icon type="thumbsup"></Icon> <span>1</span></div>
           <div>/</div>
           <div class="comments"><Icon type="chatbox-working"></Icon> <span>2</span></div>
         </div>
         
       </div>
-    </div>
-
-
-    <footer-component></footer-component>
-
+    </div> -->
   </div>
+  <div v-else>
+      <router-view></router-view>
+    </div>
 </template>
 
 <script>
-import footerComponent from './footerComponent'
-
 export default {
-  name: 'dynamicPage',
-  components: {
-      footerComponent,
-  },
   data () {
     return {
       valueText: 3,
       valueCustomText: 3.8,
       hotRecommendation: []
+    }
+  },
+  methods: {
+    createDynamic () {
+      this.$router.push({name:'CreateDynamic'})
     }
   },
   created(){
@@ -219,25 +194,33 @@ export default {
 <style scoped>
 /* 头部 */
 .header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   font-size: 16px;
   font-family: '黑体';
   font-weight: bold;
-  padding: 4% 4% 0 4%;
   height: 55px;
-  background-color: #E6E6FA;
+  border-bottom: 1px solid #ccc;
   width: 100%;
+  text-align: center;
+  line-height: 55px;
+}
+.edit{
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
+  bottom: 100px;
+  right: 50px;
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
+  line-height: 50px;
+  text-align: center;
+  font-size: 32px;
+  background-color: gold;
+  border-radius: 50% 45%;
+  box-shadow: 1px 1px 0px 0px #ccc;
+  cursor: pointer;
 }
-.header_icon{
-  font-size: 28px;
-}
-.ivu-btn-primary{
+
+
+/* .ivu-btn-primary{
   background-color: #DCDCDC;
   color: black;
 }
@@ -247,10 +230,10 @@ export default {
 li[data-v-3de72fc0]{
   width: 25%;
   text-align: center;
-}
+} */
 
 /* 热门圈子 */
-.hot_circles{
+/* .hot_circles{
   padding-top: 55px;
 }
 .hot_circles_title{
@@ -274,10 +257,10 @@ li[data-v-3de72fc0]{
   background-color: #E6E6FA;
   float: left;
   margin: 4%;
-}
+} */
 
 /* 话题文章 */
-.content{
+/* .content{
    border-bottom: 5px solid gainsboro;
 }
 .avatar_and_nickname{
@@ -346,10 +329,10 @@ li[data-v-3de72fc0]{
 .photo img{
   width: 100%;
   height: 100%;
-}
+} */
 
 /* 影片链接 */
-.movie_link{
+/* .movie_link{
   width: 92%;
   margin: 1% 4% 4% 4%;
   height: 60px;
@@ -388,10 +371,10 @@ li[data-v-3de72fc0]{
   padding: 1% 0 1% 0;
   text-align: center;
   border-radius: 15px;
-}
+} */
 
 /* 点赞和评论 */
-.attention{
+/* .attention{
   margin: 0 4% 4% 4%;
   display: flex;
   justify-content: space-between;
@@ -404,11 +387,11 @@ li[data-v-3de72fc0]{
 .comments{
   margin-right: 15%;
 
-}
+} */
 
 
 /* 推荐热评 */
- .recommended_hot_review{
+ /* .recommended_hot_review{
    margin-top: 4%;
    margin-left: 4%;
  }
@@ -462,8 +445,7 @@ li[data-v-3de72fc0]{
    overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
-  /* text-align: right; */
- }
+ } */
 
 /* 剩余精彩热评 */
  .li_right{

@@ -1,6 +1,47 @@
 <template>
-  <div class="findPage">
-   <div class="header">
+  <div class="find-page" v-if="$route.name == 'Find'">
+    <div class="head-search">
+      <Input v-model="searchValue" icon="ios-search" @on-focus="inputClick" @on-click="inputClick" placeholder="查找影片、影评、影单、影人"></Input>
+    </div>
+    <div class="tabs">
+      <div class="tabs-left" @click="goCinema">
+        <span>热映</span>
+      </div>
+      <div class="tabs-right" @click="goKindPage">
+        <span>分类</span>
+      </div>
+    </div>
+    <div class="ranking-list">
+      <div class="ranking-du">
+        <div class="title"> / 毒舌榜 / </div>
+        <div class="list" v-for="(item,index) in list" :key="index">
+          <div class="num" :class="{first : index == 0,second : index == 1,third : index == 2}"><Icon type="ios-star"></Icon></div>
+          <div class="img"><img :src="item.url" alt=""></div>
+          <div class="con">
+            <div class="con-title">{{item.title}}</div>
+            <div class="con-about">
+              <span class="count">评分 <span>{{item.count}}</span></span>
+              <span class="comment">{{item.comment}}人评论</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ranking-du">
+        <div class="title"> / 热剧榜 / </div>
+        <div class="list" v-for="(item,index) in list" :key="index">
+          <div class="num" :class="{first : index == 0,second : index == 1,third : index == 2}"><Icon type="ios-star"></Icon></div>
+          <div class="img"><img :src="item.url" alt=""></div>
+          <div class="con">
+            <div class="con-title">{{item.title}}</div>
+            <div class="con-about">
+              <span class="count">评分 <span>{{item.count}}</span></span>
+              <span class="comment">{{item.comment}}人评论</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   <!-- <div class="header">
      <div class="seach_input" @click="goSearchPage">
         <Icon type="ios-search" class="input_icon"></Icon>
         <span>查找影片、影评、影单、影人</span>
@@ -21,10 +62,10 @@
        <div>观影活动</div>
        <span>海量观影活动任你选</span>
      </div>
-   </div>
+   </div> -->
 
   <!-- 毒舌榜 -->
-  <div class="leaderboard">
+  <!-- <div class="leaderboard">
     <div class="leaderboard_box">
 
       <div class="leaderboard_rows_lists">
@@ -188,62 +229,145 @@
          <span>有点继承者的味道</span>
        </li>
      </ul>
-   </div>
-
-  <footer-component></footer-component>
-
+   </div> -->
+  </div>
+  <div v-else>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import footerComponent from './footerComponent'
-
+const photo_url = 'https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=ae023e680b0828387c00d446d9f0c264/279759ee3d6d55fb3b86e35161224f4a20a4dd01.jpg'
 export default {
-  name: 'findPage',
-  components: {
-      footerComponent,
-  },
   data () {
     return {
-      hotRecommendation: []
-      
+      searchValue:'',//搜索框 搜索的值
+      list:[
+        {url:photo_url,title:'头号玩家',count:'8.6',comment:'1725'},
+        {url:photo_url,title:'头号玩家',count:'8.6',comment:'1725'},
+        {url:photo_url,title:'头号玩家',count:'8.6',comment:'1725'}
+      ]
     }
   },
   methods: {
-    goSearchPage(){
-      this.$router.push({path: '/searchPage'})
+    inputClick () {
+      this.$router.push({name:'Search'})
     },
+    // goSearchPage(){
+    //   this.$router.push({path: '/searchPage'})
+    // },
     goCinema(){
-      this.$router.push({path: '/cinemaLineupPage'})
+      this.$router.push({name: 'CinemaLineupPage'})
     },
     goKindPage(){
-      this.$router.push({path: '/allKindsPage'})
+      this.$router.push({name: 'AllKindsPage'})
     },
-    lookAll() {
-      this.$router.push({path: '/leaderboardPage'})
-    },
-    daySource(){
-      this.$router.push({path: '/dailyRecommendation'})
-    },
-    monthSource(){
-      this.$router.push({path: '/monthRecommendation'})
-    }
+    // lookAll() {
+    //   this.$router.push({path: '/leaderboardPage'})
+    // },
+    // daySource(){
+    //   this.$router.push({path: '/dailyRecommendation'})
+    // },
+    // monthSource(){
+    //   this.$router.push({path: '/monthRecommendation'})
+    // }
   },
   created(){
-    this.$http.get("http://localhost:3000/hotnews").then(
-      res => {
-        console.log(res.data.data);
-        this.hotRecommendation = res.data.data;
-      },
-      err => {}
-    );
+    // this.$http.get("http://localhost:3000/hotnews").then(
+    //   res => {
+    //     this.hotRecommendation = res.data.data;
+    //   },
+    //   err => {}
+    // );
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.header{
+.find-page{
+  padding: 10px 10px 50px 10px;
+}
+.head-search{
+  width: 100%;
+  height: 50px;
+}
+.tabs{
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  font-size: 22px;
+  border-bottom: 5px solid #ccc;
+}
+.tabs-left{
+  float: left;
+  width: 49%;
+  height: 90px;
+}
+.tabs-right{
+  float: right;
+  width: 49%;
+  height: 90px;
+}
+
+/* 排行榜 */
+.ranking-list{
+  margin-top: 20px;
+}
+.ranking-du, .ranking-hot{
+  height: 300px;
+  margin-bottom: 20px;
+}
+.ranking-du .title, .ranking-hot .title{
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  height: 48px;
+  line-height: 48px;
+}
+.ranking-du .list{
+  height: 80px;
+  padding-top: 10px;
+}
+.ranking-du .list .num{
+  float: left;
+  width: 50px;
+  line-height: 80px;
+  text-align: center;
+  font-size: 32px;
+}
+.first{
+  color: #ffff00;
+}
+.second{
+  color: #e1e1e1;
+}
+.third{
+  color: #B8860B;
+}
+.ranking-du .list .img{
+  float: left;
+  margin-right: 20px;
+}
+.ranking-du .list .img img{
+  height: 70px;
+}
+.ranking-du .list .con{
+  float: left;
+}
+.ranking-du .list .con .con-title{
+  line-height: 40px;
+  font-size: 14px;
+  font-weight: bolder;
+}
+.ranking-du .list .con .con-about{
+  line-height: 30px;
+}
+.ranking-du .list .con .con-about .count{
+  margin-right: 30px;
+}
+.ranking-du .list .con .con-about .count span{
+  color: goldenrod;
+}
+/* .header{
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -272,11 +396,11 @@ export default {
 }
 .header_kind{
   font-size: 16px;
-}
+} */
 
 
 /* 院线热映 和 观影活动 */
-.cinema_lineup{
+/* .cinema_lineup{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -301,11 +425,11 @@ export default {
   float: left;
   font-size: 32px;
   margin-right: 5%;
-}
+} */
 
 
 /* 毒舌榜 */
-.leaderboard{
+/* .leaderboard{
   padding: 4%;
   border-bottom: 5px solid gainsboro;
   overflow: hidden;
@@ -333,7 +457,6 @@ h4{
 }
 .leaderboard_list_right p{
   font-size: 14px;
-  /* font-weight: bold; */
 }
 .leaderboard_list_right div{
   font-size: 12px;
@@ -367,11 +490,11 @@ h4{
   font-size: 16px;
   margin-left: 15%;
   margin-top: 4%;
-}
+} */
 
 
 /* 每月与每日推荐 */
-.day_and_month{
+/* .day_and_month{
   width: 92%;
   height: 60px;
   margin-right: 4%;
@@ -402,10 +525,10 @@ h4{
 .big_image img{
   width: 100%;
   height: 100%;
-}
+} */
 
 /* 横向排行 */
-.score_lists{
+/* .score_lists{
   padding-left: 4%;
   padding-top: 4%;
   padding-bottom: 60px;
@@ -436,5 +559,5 @@ h4{
 .score_lists ul li p{
   font-size: 14px;
   font-weight: bold;
-}
+} */
 </style>

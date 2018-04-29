@@ -80,14 +80,14 @@
 </template>
 
 <script>
-import filmingComponent from '../components/filmingComponent'
-import comingsoonComponent from '../components/comingsoonComponent'
+// import filmingComponent from '../components/filmingComponent'
+// import comingsoonComponent from '../components/comingsoonComponent'
 export default {
   name: 'cinemaLineupPage',
-  components: {
-    filmingComponent,
-    comingsoonComponent,
-  },
+//   components: {
+//     filmingComponent,
+//     comingsoonComponent,
+//   },
   data () {
     return {
        switch1: false,

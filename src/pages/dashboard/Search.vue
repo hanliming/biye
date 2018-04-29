@@ -1,9 +1,10 @@
 <template>
   <div class="hotnews">
-    <template class="search_header">
-        <input  placeholder="查找影片、影评、影单、影人" clearable class="search_input" v-model="seachKey" @blur="seach">
-        <router-link to="/" class="search_cancel">取消</router-link>
-    </template>
+    <div class="search_header">
+        <!-- <input  placeholder="查找影片、影评、影单、影人" clearable class="search_input" v-model="seachKey" @blur="seach">
+        <router-link to="/" class="search_cancel">取消</router-link> -->
+        <Input v-model="searchValue" :autofocus="true" icon="ios-search" placeholder="查找影片、影评、影单、影人"></Input>
+    </div>
 
     <div class="search_history"> 
       <div class="history_title" v-if="isShowHistory">
@@ -118,8 +119,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .search_header{
-  display: flex;
-  justify-content: space-between;
+  padding: 5px 10px 0 10px;
+  /* display: flex;
+  justify-content: space-between; */
   /* align-items: center; */
 }
 .search_input{

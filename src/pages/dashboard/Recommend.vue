@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div v-if="$route.name == 'Recommend'">
     <div class="header">
       <div class="header_calendar">
         <Icon type="android-calendar"></Icon>
@@ -10,53 +10,46 @@
       </div>
     </div>
     <template class="tbar">
-      <Tabs value="name1">
-          <TabPane label="热门" name="name1">
-            <popular-page></popular-page>
+      <Tabs :value="activename" @on-click="tabClick">
+          <TabPane label="热门" name="1">
+            <popular-page v-if="activename == '1'"></popular-page>
           </TabPane>
-          <TabPane label="文章" name="name2">
-            <article-page></article-page>
+          <TabPane label="文章" name="2">
+            <article-page v-if="activename == '2'"></article-page>
           </TabPane>
-          <TabPane label="短视频" name="name3">
-            <shortvideo-page></shortvideo-page>
-          </TabPane>
-          <TabPane label="热讯" name="name4">
-            <hotnews-page></hotnews-page>
-          </TabPane>
-          <TabPane label="好片安利" name="name5">
-            <amway-page></amway-page>
+          <TabPane label="好片安利" name="3">
+            <amway-page v-if="activename == '3'"></amway-page>
           </TabPane>
       </Tabs>
     </template>
-    <footer-component></footer-component>
+  </div>
+  <div v-else>
+    <router-view></router-view>
   </div>
 </template>
-
 <script>
-import footerComponent from '../footerComponent'
-import popularPage from '../popularPage'
-import articlePage from '../articlePage'
-import shortvideoPage from '../shortvideoPage'
-import hotnewsPage from '../hotnewsPage'
-import amwayPage from '../amwayPage'
+import popularPage from './recommend/popularPage'
+import articlePage from './recommend/articlePage'
+import amwayPage from './recommend/amwayPage'
 export default {
   name: 'Index',
   components: {
       popularPage,
       articlePage,
-      shortvideoPage,
-      hotnewsPage,
-      amwayPage,
-      footerComponent,
+      amwayPage
   },
   data () {
     return {
-      msg: '手机APP'
+      activename: '1',
     }
   },
   methods:{
+    tabClick (name) {
+      this.activename = name
+    },
+    //搜索
     search(){
-      this.$router.push({path: '../searchPage'})
+      this.$router.push({name: 'Search'})
     },
   },
   created () {
@@ -67,8 +60,6 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 body{
   margin: 0;
@@ -76,8 +67,8 @@ body{
 }
 .header{
   width: 100%;
-  height: 40px;
-  background-color: #D8BFD8;
+  height: 60px;
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -99,10 +90,9 @@ body{
   margin-right: 4%;
  }
  .ivu-tabs{
-  padding-top: 40px;
+  padding-top: 60px;
   padding-bottom: 60px;
  }
-
  /* .ivu-tabs-nav{
    margin-left: 7%;
  }

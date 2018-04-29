@@ -7,7 +7,7 @@
 
           <div class="touxiang_box">
               <div class="touxiang">
-                <img src="../../assets/touxiang.jpg" alt="">
+                <img src="../../../../assets/touxiang.jpg" alt="">
             </div>
                 <span>逍遥侠客</span>
           </div>
@@ -103,9 +103,9 @@
         </p>
         <p class="p_img clearfix">
             <span class="img_gif_icon" style="height: 200px;">
-                <span class="gif_wait_play">
-                    </span></span>
-                    <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/9a/554c1cec8a304d3a9aa93bb498186e9a.jpg" ds-width="280" ds-height="264" ds-ratio="0.66" style="height: 200px; width: 280px;" src="http://image.dushemovie.com/other/20180328/9a/554c1cec8a304d3a9aa93bb498186e9a.jpg"></p>
+                <span class="gif_wait_play"></span>
+            </span>
+            <img p-img="1" ds-src="http://image.dushemovie.com/other/20180328/9a/554c1cec8a304d3a9aa93bb498186e9a.jpg" ds-width="280" ds-height="264" ds-ratio="0.66" style="height: 200px; width: 280px;" src="http://image.dushemovie.com/other/20180328/9a/554c1cec8a304d3a9aa93bb498186e9a.jpg"></p>
                     <p>
                         <span style="color:#7f7f7f">
                             <span style="font-size: 14px;">伊沃里可谓是最佳原创剧本奖项获奖者中最年长的人</span>
@@ -131,7 +131,7 @@
 
     <footer>
         <div class="touxiang">
-            <img src="../../assets/touxiang.jpg" alt="">
+            <img src="../../../../assets/touxiang.jpg" alt="">
         </div>
         <input type="text" placeholder="我来说两句" @click="inputClick">
         <div @click="goCommentsLists">
@@ -161,19 +161,18 @@
             <textarea name="" id="" cols="30" rows="10"  placeholder="我来说两句(500字以内)" class="input_fabu"></textarea>
         </Modal>
     </template>
-    <popups-component v-if="isShowLogin" @setState="setState"></popups-component>
+    <!-- <popups-component v-if="isShowLogin" @setState="setState"></popups-component> -->
 
 
   </div>
 </template>
 
 <script>
-import popupsComponent from '../popupsComponent'
-
+// import popupsComponent from '../popupsComponent'
 export default {
   name: "bannerdetailPage",
   components: {
-    popupsComponent,
+    // popupsComponent,
   },
   data(){
       return {
