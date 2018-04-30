@@ -2,8 +2,9 @@
   <div class="hotnews">
     <div class="search_header">
         <!-- <input  placeholder="查找影片、影评、影单、影人" clearable class="search_input" v-model="seachKey" @blur="seach">
-        <router-link to="/" class="search_cancel">取消</router-link> -->
-        <Input v-model="searchValue" :autofocus="true" icon="ios-search" placeholder="查找影片、影评、影单、影人"></Input>
+         -->
+        <Input v-model="seachKey" :autofocus="true" icon="ios-search" placeholder="查找影片、影评、影单、影人" @on-click="search" @on-blur="search"></Input>
+        <router-link to="/" class="search_cancel">取消</router-link>
     </div>
 
     <div class="search_history"> 
@@ -65,7 +66,7 @@ export default {
   },
   methods:{
     //添加 搜索数据
-    seach(){
+    search(){
       if(this.seachKey != ''){
         this.$http.post('http://localhost:3000/search',{key: this.seachKey})
           .then(res=>{
@@ -119,10 +120,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .search_header{
-  padding: 5px 10px 0 10px;
-  /* display: flex;
-  justify-content: space-between; */
-  /* align-items: center; */
+  padding: 8px 10px 0 10px;
+  display: flex;
+  justify-content: space-between; 
+  /* align-items: center;
 }
 .search_input{
   width: 80%;
@@ -143,6 +144,11 @@ export default {
   margin-top: 4%;
   /* border-bottom: 1px solid #C0C0C0; */
 }
+.search_history {
+  margin-top: 4%;
+}
+
+
 .history_title{
   margin: 0 4% 4% 4%;
   display: flex;

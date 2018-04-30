@@ -93,7 +93,17 @@ export default new Router({
               component: resolve => require(['../pages/dashboard/find/CinemaLineupPage'],resolve),
               meta: {
                 pageTitle: '热映'
-              }
+              },
+              children: [
+                {
+                  path: 'FilmDetail/:id?',
+                  name: 'FilmDetail',
+                  component: resolve => require(['../pages/dashboard/find/cinemalineuppage/filmdetail'],resolve),
+                  meta: {
+                    pageTitle: '电影主页'
+                  }
+                }
+              ]
             },
 
           ]

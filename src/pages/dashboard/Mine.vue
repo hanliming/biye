@@ -64,12 +64,12 @@
 </template>
 
 <script>
-// import popupsComponent from './popupsComponent'
+import popupsComponent from './mine/popupsComponent'
 
 export default {
   name: 'userPage',
   components: {
-    // popupsComponent,
+    popupsComponent,
   },
   data () {
     return {

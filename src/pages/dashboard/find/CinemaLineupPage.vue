@@ -1,5 +1,5 @@
 <template>
-  <div class="settingPage">
+  <div class="settingPage" v-if="$route.name == 'CinemaLineupPage'">
     <div class="header">
         <div @click="goback">
             <Icon type="ios-arrow-left" class="cancel"></Icon>
@@ -11,13 +11,16 @@
     <div class="header_kind" style="padding-top: 70px;">
         <Tabs value="name1">
             <TabPane label="正在热映" name="name1">
-                <filming-component></filming-component>
+                <filming-component v-bind:dataInfo="searchData"></filming-component>
             </TabPane>
             <TabPane label="即将上映" name="name3">
                 <comingsoon-component></comingsoon-component>
             </TabPane>
         </Tabs>
     </div>
+  </div>
+  <div v-else>
+      <router-view></router-view>
   </div>
 </template>
 
@@ -36,34 +39,32 @@ export default {
        user_name:'',
        isShowLogin:false,
        modal10: false,//版本检测
+       searchData: [],//影视列表
     }
   },
+created () {
+
+      this.fetchData();
+  },
   methods:{
-      goback(){
+    goback(){
           this.$router.go(-1)
       },
-      //登录
-      login () {
-          this.isShowLogin = true
-      },
-      setState () {
-          this.isShowLogin = false
-      },
-      //退出登录
-      exit () {
-          window.localStorage.clear()
-          this.$router.push({name:'userPage'})
-      },
-      //清理缓存
-      info (){
-          this.$Message.info('清理成功');
-      }
+    fetchData () {
+        //  查询搜索数据
+        this.$http.get("http://localhost:3000/yuanxianInfo").then(
+        res => {
+            // console.log(res.data.data);
+            this.searchData = res.data.data;
+            console.log(this.searchData)
+           
+        },
+        err => {
+            console.log(err)
+        });
+    }
   },
-  created () {
-      if(localStorage.user_name){
-          this.user_name = localStorage.user_name
-      }
-  }
+ 
 }
 </script>
 

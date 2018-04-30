@@ -1,191 +1,29 @@
 <template>
     <div class="filming">
-        <div class="content">
-            <div class="about_movie">
+        <div class="content" v-for="(item,index) in dataInfo" :key="index">
+            <div class="about_movie" @click="godetail(item.labelID,item)">
                 <div class="imageBox">
-                    <img src="" alt="">
+                    <img :src="item.picture" alt="">
                 </div>
                 <div>
                     <div class="name_box">
                         <div>
-                            <h3>狂暴巨兽</h3>
-                            <p>评分  <span>6.5</span></p>
+                            <h3>{{item.name}}</h3>
+                            <p v-if="item.pingfen != null">评分  <span>{{item.pingfen}}</span></p>
                         </div>
                         <div>
                             关注+
                         </div>
                     </div> 
                     <div class="introduce">
-                        <p>"基因异变引发全球灾难"</p>
-                        <p>道恩强森/娜奥米哈里斯/杰弗里</p>
-                        <p>2018-04-13上映</p>
+                        <p>{{item.aTitle}}</p>
+                        <p>{{item.movieStart}}</p>
+                        <p>{{item.time}}上映</p>
                     </div>
                 </div>
             </div>
-
-            <p class="film_review">影评：他的电影没有别的就是爽</p>
-            <p class="film_review">影评： 巨石强森这部新片比《勇敢者游戏》更刺激</p>
-        </div>
-
-        <div class="content">
-            <div class="about_movie">
-                <div class="imageBox">
-                    <img src="" alt="">
-                </div>
-                <div>
-                    <div class="name_box">
-                        <div>
-                            <h3>狂暴巨兽</h3>
-                            <p>评分  <span>6.5</span></p>
-                        </div>
-                        <div>
-                            关注+
-                        </div>
-                    </div> 
-                    <div class="introduce">
-                        <p>"基因异变引发全球灾难"</p>
-                        <p>道恩强森/娜奥米哈里斯/杰弗里</p>
-                        <p>2018-04-13上映</p>
-                    </div>
-                </div>
-            </div>
-
-            <p class="film_review">影评：他的电影没有别的就是爽</p>
-            <p class="film_review">影评： 巨石强森这部新片比《勇敢者游戏》更刺激</p>
-        </div>
-
-                <div class="content">
-            <div class="about_movie">
-                <div class="imageBox">
-                    <img src="" alt="">
-                </div>
-                <div>
-                    <div class="name_box">
-                        <div>
-                            <h3>狂暴巨兽</h3>
-                            <p>评分  <span>6.5</span></p>
-                        </div>
-                        <div>
-                            关注+
-                        </div>
-                    </div> 
-                    <div class="introduce">
-                        <p>"基因异变引发全球灾难"</p>
-                        <p>道恩强森/娜奥米哈里斯/杰弗里</p>
-                        <p>2018-04-13上映</p>
-                    </div>
-                </div>
-            </div>
-
-            <p class="film_review">影评：他的电影没有别的就是爽</p>
-            <p class="film_review">影评： 巨石强森这部新片比《勇敢者游戏》更刺激</p>
-        </div>
-
-                <div class="content">
-            <div class="about_movie">
-                <div class="imageBox">
-                    <img src="" alt="">
-                </div>
-                <div>
-                    <div class="name_box">
-                        <div>
-                            <h3>狂暴巨兽</h3>
-                            <p>评分  <span>6.5</span></p>
-                        </div>
-                        <div>
-                            关注+
-                        </div>
-                    </div> 
-                    <div class="introduce">
-                        <p>"基因异变引发全球灾难"</p>
-                        <p>道恩强森/娜奥米哈里斯/杰弗里</p>
-                        <p>2018-04-13上映</p>
-                    </div>
-                </div>
-            </div>
-
-            <p class="film_review">影评：他的电影没有别的就是爽</p>
-            <p class="film_review">影评： 巨石强森这部新片比《勇敢者游戏》更刺激</p>
-        </div>
-
-                <div class="content">
-            <div class="about_movie">
-                <div class="imageBox">
-                    <img src="" alt="">
-                </div>
-                <div>
-                    <div class="name_box">
-                        <div>
-                            <h3>狂暴巨兽</h3>
-                            <p>评分  <span>6.5</span></p>
-                        </div>
-                        <div>
-                            关注+
-                        </div>
-                    </div> 
-                    <div class="introduce">
-                        <p>"基因异变引发全球灾难"</p>
-                        <p>道恩强森/娜奥米哈里斯/杰弗里</p>
-                        <p>2018-04-13上映</p>
-                    </div>
-                </div>
-            </div>
-
-            <p class="film_review">影评：他的电影没有别的就是爽</p>
-            <p class="film_review">影评： 巨石强森这部新片比《勇敢者游戏》更刺激</p>
-        </div>
-
-                <div class="content">
-            <div class="about_movie">
-                <div class="imageBox">
-                    <img src="" alt="">
-                </div>
-                <div>
-                    <div class="name_box">
-                        <div>
-                            <h3>狂暴巨兽</h3>
-                            <p>评分  <span>6.5</span></p>
-                        </div>
-                        <div>
-                            关注+
-                        </div>
-                    </div> 
-                    <div class="introduce">
-                        <p>"基因异变引发全球灾难"</p>
-                        <p>道恩强森/娜奥米哈里斯/杰弗里</p>
-                        <p>2018-04-13上映</p>
-                    </div>
-                </div>
-            </div>
-
-            <p class="film_review">影评：他的电影没有别的就是爽</p>
-            <p class="film_review">影评： 巨石强森这部新片比《勇敢者游戏》更刺激</p>
-        </div>
-                <div class="content">
-            <div class="about_movie">
-                <div class="imageBox">
-                    <img src="" alt="">
-                </div>
-                <div>
-                    <div class="name_box">
-                        <div>
-                            <h3>狂暴巨兽</h3>
-                            <p>评分  <span>6.5</span></p>
-                        </div>
-                        <div>
-                            关注+
-                        </div>
-                    </div> 
-                    <div class="introduce">
-                        <p>"基因异变引发全球灾难"</p>
-                        <p>道恩强森/娜奥米哈里斯/杰弗里</p>
-                        <p>2018-04-13上映</p>
-                    </div>
-                </div>
-            </div>
-
-            <p class="film_review">影评：他的电影没有别的就是爽</p>
-            <p class="film_review">影评： 巨石强森这部新片比《勇敢者游戏》更刺激</p>
+            <p class="film_review">影评: {{item.commentone}}</p>
+            <p class="film_review">影评： {{item.commenttwo}}</p>
         </div>
     </div>
 </template>
@@ -193,13 +31,22 @@
 <script>
 export default {
   name: 'filmingComponent',
+  props: ["dataInfo"],
   data () {
     return {
        
     }
   },
+  created() {
+    //   console.log(this.dataInfo)
+  },
   methods:{
-    
+      godetail(id,item) {
+          console.log(id)
+          console.log(item);
+        //   this.$router.push({name: 'FilmDetail',params:{id:id}})
+          this.$router.push({name: 'FilmDetail',params: {id:id}})
+      }
   }
 }
 </script>
@@ -220,6 +67,10 @@ export default {
     background-color: #eee;
     margin-right: 4%;
 }
+.imageBox img{
+    width: 100%;
+    height: 100%;
+}
 .name_box{
     display: flex;
     justify-content: space-between;
@@ -235,8 +86,6 @@ export default {
     line-height: 30px;
 }
 .introduce p{
-    height: 23px;
-    line-height: 23px;
     color: gray;
 }
 .film_review{
@@ -246,6 +95,11 @@ export default {
     background-color: #eee;
     margin-bottom: 4%;
     padding-left: 4%;
+}
+.comment_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 </style>
 

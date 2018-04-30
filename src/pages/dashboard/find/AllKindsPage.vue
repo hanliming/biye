@@ -9,7 +9,7 @@
         <div></div>
     </div>
     <div class="all_kinds">
-        <p>地区</p>
+        <!-- <p>地区</p>
         <div class="kind_box">
             <div class="line_box">
                 <div>华语</div>
@@ -19,7 +19,7 @@
                 <div>欧美</div>
                 <div>其他</div>
             </div>
-        </div>
+        </div> -->
 
         <div>
             <p>影视分类</p>
