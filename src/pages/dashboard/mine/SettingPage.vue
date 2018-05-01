@@ -87,7 +87,7 @@
         <li>
             <div class="icon_div">
                 <Icon type="ios-eye-outline" class="li_icon"></Icon>
-                <div class="title">关于毒舌电影</div>
+                <div class="title">关于侃侃电影</div>
             </div>
              <template>
                <Icon type="ios-arrow-right" class="li_icon"></Icon>

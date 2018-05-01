@@ -23,12 +23,7 @@
         <span class="wenzi_title">大家都在搜</span>
       </div>
       <ul class="ul_history">
-        <li>唐人街探案</li>
-        <li>红海行动</li>
-        <li>黑豹</li>
-        <li>老男孩</li>
-        <li>乑没</li>
-        <li>妖猫转</li>
+        <li v-for="(itemlist,indexlist) in movielists" :key="indexlist" @click="seachmovie(itemlist.name)">{{itemlist.name}}</li>
       </ul>
       <div class="wall"></div>
     </div>
@@ -38,16 +33,7 @@
         <span class="wenzi_title">类别</span>
       </div>
       <ul class="ul_history">
-        <li>美剧</li>
-        <li>韩剧</li>
-        <li>港剧</li>
-        <li>日剧</li>
-        <li>英剧</li>
-        <li>剧情</li>
-        <li>爱情</li>
-        <li>喜剧</li>
-        <li>科幻</li>
-        <li>全部</li>
+        <li v-for="(item,index) in kindsData" :key="index" @click="kindMovieLists(item.Initials)">{{item.kind}}</li>
       </ul>
       <div class="wall"></div>
     </div>
@@ -56,73 +42,122 @@
 
 <script>
 export default {
-  name: 'searchPage',
-  data () {
+  name: "searchPage",
+  data() {
     return {
-      seachKey: '',//搜索关键字
-      seachData: [],//查询关键字
+      seachKey: "", //搜索关键字
+      seachData: [], //查询关键字
       isShowHistory: true,
-    }
+      kindsData: [
+        { kind: "动画", Initials: "dh" },
+        { kind: "剧情", Initials: "jq" },
+        { kind: "喜剧", Initials: "xj" },
+        { kind: "动作", Initials: "dz" },
+        { kind: "科幻", Initials: "kh" },
+        { kind: "犯罪", Initials: "fz" },
+        { kind: "动画", Initials: "dh" }
+      ],
+      movielists: [
+        { name: "后来的我们" },
+        { name: "幕后玩家" },
+        { name: "低压槽：欲望之城" },
+        { name: "战神纪" },
+        { name: "狂暴巨兽" },
+        { name: "黄金花" },
+        { name: "玛丽与魔女之花" }
+      ]
+    };
   },
-  methods:{
+  methods: {
     //添加 搜索数据
-    search(){
-      if(this.seachKey != ''){
-        this.$http.post('http://localhost:3000/search',{key: this.seachKey})
-          .then(res=>{
-              console.log(res.data)
-              if(res.data.success == true){
-                  alert('添加成功')
-                  this.$router.go(0);
-              }else{
-                  alert(res.data.message)
+    search() {
+      if (this.seachKey != "") {
+        this.$http
+          .post("http://localhost:3000/search", { key: this.seachKey })
+          .then(
+            res => {
+              // console.log(res.data);
+              if (res.data.success == true) {
+                this.$Message.success("添加成功");
+                this.$http
+                  .get("http://localhost:3000/moviename", {
+                    params: { name: this.seachKey }
+                  })
+                  .then(res => {
+                    // console.log(res.data);
+                    this.$router.push({
+                      name: "FilmDetail",
+                      params: { id: res.data.data }
+                    });
+                  });
+              } else {
+                alert(res.data.message);
               }
-          },err=>{
-              console.log(err)
-          })
+            },
+            err => {
+              console.log(err);
+            }
+          );
       }
     },
     //清除搜索数据
-    clear(){
-      this.$http.post('http://localhost:3000/delete')
-      .then(res=>{
-         if(res.data.success == true){
-              alert('删除成功')
-              this.$router.go(0);
-          }else{
-              alert(res.data.message)
+    clear() {
+      this.$http.post("http://localhost:3000/delete").then(
+        res => {
+          if (res.data.success == true) {
+            alert("删除成功");
+            this.$router.go(0);
+          } else {
+            alert(res.data.message);
           }
-      },err=>{
-        console.log(err)
-      })
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    },
+    kindMovieLists(kind) {
+      this.$router.push({ name: "OneKind", params: { kid: kind } });
+    },
+    //大家都在搜
+    seachmovie(name) {
+      this.$http
+        .get("http://localhost:3000/moviename", {
+          params: { name: name }
+        })
+        .then(res => {
+          // console.log(res.data);
+          this.$router.push({
+            name: "FilmDetail",
+            params: { id: res.data.data }
+          });
+        });
     }
   },
-  created(){
+  created() {
     //  查询搜索数据
     this.$http.get("http://localhost:3000/history").then(
       res => {
         // console.log(res.data.data);
         this.seachData = res.data.data;
-        if(this.seachData == ''){
+        if (this.seachData == "") {
           this.isShowHistory = false;
         }
       },
       err => {
-        console.log(err)
+        console.log(err);
       }
     );
-    
   }
-
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.search_header{
+.search_header {
   padding: 8px 10px 0 10px;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   /* align-items: center;
 }
 .search_input{
@@ -144,36 +179,54 @@ export default {
   margin-top: 4%;
   /* border-bottom: 1px solid #C0C0C0; */
 }
+.ivu-input-wrapper {
+  width: 90%;
+}
+a {
+    color: #2d8cf0;
+    background: 0 0;
+    text-decoration: none;
+    outline: 0;
+    cursor: pointer;
+    transition: color .2s ease;
+    display: block;
+    width: 10%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    color: black;
+}
 .search_history {
   margin-top: 4%;
 }
 
-
-.history_title{
+.history_title {
   margin: 0 4% 4% 4%;
   display: flex;
   justify-content: space-between;
 }
-.wenzi_title{
+.wenzi_title {
   font-size: 16px;
-  color: #C0C0C0;
+  color: #c0c0c0;
 }
-.wenzi_clear{
+.wenzi_clear {
   font-size: 14px;
   color: #708090;
 }
-ul{
+ul {
   list-style: none;
 }
-li{
+li {
   float: left;
   margin-left: 4%;
   margin-bottom: 4%;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   height: 30px;
   line-height: 30px;
   border-radius: 10px;
   padding-left: 4%;
   padding-right: 4%;
+  font-size: 16px;
+  font-family: '宋体';
 }
 </style>

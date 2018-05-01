@@ -11,7 +11,7 @@
 
     <div class="header_kind">
         <Tabs value="name1">
-            <TabPane label="毒舌榜" name="name1">
+            <TabPane label="侃侃榜" name="name1">
                 <!-- <filming-component></filming-component> -->
                 <tonguelist-component></tonguelist-component>
             </TabPane>

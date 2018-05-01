@@ -13,29 +13,30 @@
     </div>
     <div class="ranking-list">
       <div class="ranking-du">
-        <div class="title"> / 毒舌榜 / </div>
-        <div class="list" v-for="(item,index) in list" :key="index">
+        <div class="title"> / 侃侃榜 / </div>
+        <div class="list" v-for="(item,index) in searchData" :key="index" v-if="index < 5" @click="goMoviedetail(item.labelID)">
           <div class="num" :class="{first : index == 0,second : index == 1,third : index == 2}"><Icon type="ios-star"></Icon></div>
-          <div class="img"><img :src="item.url" alt=""></div>
+          <div class="img"><img :src="item.picture" alt=""></div>
           <div class="con">
-            <div class="con-title">{{item.title}}</div>
+            <div class="con-title">{{item.name}}</div>
             <div class="con-about">
-              <span class="count">评分 <span>{{item.count}}</span></span>
-              <span class="comment">{{item.comment}}人评论</span>
+              <span class="count">评分 <span>{{item.pingfen}}</span></span>
+              <span class="comment">{{item.count}}人评论</span>
             </div>
           </div>
         </div>
       </div>
+      <div class="wall"></div>
       <div class="ranking-du">
         <div class="title"> / 热剧榜 / </div>
-        <div class="list" v-for="(item,index) in list" :key="index">
-          <div class="num" :class="{first : index == 0,second : index == 1,third : index == 2}"><Icon type="ios-star"></Icon></div>
-          <div class="img"><img :src="item.url" alt=""></div>
+        <div class="list" v-for="(item,indexhot) in searchData" :key="indexhot" v-if="indexhot > 5" @click="goMoviedetail(item.labelID)">
+          <div class="num" :class="{first : indexhot == 4,second : indexhot == 5,third : indexhot == 6}"><Icon type="ios-star"></Icon></div>
+          <div class="img"><img :src="item.picture" alt=""></div>
           <div class="con">
-            <div class="con-title">{{item.title}}</div>
+            <div class="con-title">{{item.name}}</div>
             <div class="con-about">
-              <span class="count">评分 <span>{{item.count}}</span></span>
-              <span class="comment">{{item.comment}}人评论</span>
+              <span class="count">评分 <span>{{item.pingfen}}</span></span>
+              <span class="comment">{{item.count}}人评论</span>
             </div>
           </div>
         </div>
@@ -64,12 +65,12 @@
      </div>
    </div> -->
 
-  <!-- 毒舌榜 -->
+  <!-- 侃侃榜 -->
   <!-- <div class="leaderboard">
     <div class="leaderboard_box">
 
       <div class="leaderboard_rows_lists">
-        <h4>毒舌榜</h4>
+        <h4>侃侃榜</h4>
         <div class="leaderboard_list">
           <div class="leaderboard_list_left leaderboard_list_div">1</div>
           <div class="leaderboard_list_middle leaderboard_list_div">图片</div>
@@ -242,6 +243,7 @@ export default {
   data () {
     return {
       searchValue:'',//搜索框 搜索的值
+      searchData: [],//排行榜数组
       list:[
         {url:photo_url,title:'头号玩家',count:'8.6',comment:'1725'},
         {url:photo_url,title:'头号玩家',count:'8.6',comment:'1725'},
@@ -262,6 +264,19 @@ export default {
     goKindPage(){
       this.$router.push({name: 'AllKindsPage'})
     },
+    goMoviedetail (id) {
+
+      this.$router.push({name: 'FilmDetail',params: {id:id}})
+      //   this.$http.get("http://localhost:3000/commentLists?id=" + id).then(
+      //   res => {
+      //     this.commentLists = res.data.data;
+      //   //   console.log(this.sigleLists);
+      //   },
+      //   err => {
+      //     console.log(err);
+      //   }
+      // );
+    }
     // lookAll() {
     //   this.$router.push({path: '/leaderboardPage'})
     // },
@@ -279,10 +294,24 @@ export default {
     //   },
     //   err => {}
     // );
+
+     this.$http.get("http://localhost:3000/yuanxianInfo").then(
+        res => {
+            // console.log(res.data.data);
+            this.searchData = res.data.data;
+            console.log(this.searchData)
+           
+        },
+        err => {
+            console.log(err)
+        });
   }
 }
 </script>
 <style scoped>
+.wall{
+  clear: both;
+}
 .find-page{
   padding: 10px 10px 50px 10px;
 }
@@ -428,7 +457,7 @@ export default {
 } */
 
 
-/* 毒舌榜 */
+/* 侃侃榜 */
 /* .leaderboard{
   padding: 4%;
   border-bottom: 5px solid gainsboro;

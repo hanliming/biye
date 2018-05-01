@@ -17,7 +17,7 @@
            </div>
        </div>
        <button class="next_step" @click="nextStep">下一步</button>
-       <div class="agreement">注册毒舌账号表示你同意《用户协议》</div>
+       <div class="agreement">注册侃侃账号表示你同意《用户协议》</div>
     </div>
 </template>
 

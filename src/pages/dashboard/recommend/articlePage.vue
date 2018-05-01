@@ -155,7 +155,7 @@ export default {
     // 热门推荐
      this.$http.get("http://localhost:3000/hot").then(
       res => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         this.hotRecommendation = res.data.data;
       },
       err => {}
@@ -164,7 +164,7 @@ export default {
     //推荐作者
      this.$http.get("http://localhost:3000/author").then(
       res => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         this.authors = res.data.data;
       },
       err => {}

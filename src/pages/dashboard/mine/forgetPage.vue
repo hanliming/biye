@@ -45,9 +45,10 @@ export default {
       } else {
         this.$http.post("http://localhost:3000/forget", {mobile: this.mobileNum,password: this.pass})
         .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.success == true) {
-                alert("修改成功");
+                // alert("修改成功");
+                this.$message.success('修改成功')
                 this.$router.push({ path: "/loginPage" });
                 } else {
                 alert(res.data.message);

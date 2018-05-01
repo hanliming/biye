@@ -19,7 +19,7 @@ export default {
     commit () {
       this.$http.get('http://localhost:3000/dynamic/add?data='+this.msg)
       .then(res => {
-        console.log(res)
+        // console.log(res)
       },err => {
 
       })

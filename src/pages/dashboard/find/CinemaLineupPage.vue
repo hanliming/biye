@@ -56,7 +56,7 @@ created () {
         res => {
             // console.log(res.data.data);
             this.searchData = res.data.data;
-            console.log(this.searchData)
+            // console.log(this.searchData)
            
         },
         err => {

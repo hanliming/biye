@@ -84,7 +84,17 @@ export default new Router({
               component: resolve => require(['../pages/dashboard/find/AllKindsPage'],resolve),
               meta: {
                 pageTitle: '电影分类'
-              }
+              },
+              children: [
+                {
+                  path: 'OneKind/:kid?',
+                  name: 'OneKind',
+                  component: resolve => require(['../pages/dashboard/find/allkindspage/OneKind'],resolve),
+                  meta: {
+                    pageTitle: '同一个分类页'
+                  }
+                }
+              ]
             },
             
             {
@@ -123,7 +133,19 @@ export default new Router({
               meta: {
                 pageTitle: '写动态'
               }
-            }
+            },
+            {
+              path: 'CommentsLists',
+              name: 'CommentsLists',
+              component: resolve => require(['../pages/dashboard/dynamic/CommentsLists'],resolve),
+              meta: {
+                pageTitle: '评论列表'
+              }
+            },
+
+
+
+
           ]
         },
         {

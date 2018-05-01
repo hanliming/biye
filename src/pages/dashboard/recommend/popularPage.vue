@@ -60,9 +60,9 @@
         <img src="http://image.dushemovie.com/other/20180328/21/80bbae33ed3d495883e3ce7ed16fc921.png" alt="">
       </div>
     </div> -->
-    <!-- 影视早毒 -->
+    <!-- 影视早到 -->
     <!-- <div class="reading_early">
-      <h3><Icon type="ios-book-outline"></Icon></Icon> <span class="Hot_topics">影视早毒</span><Icon type="ios-arrow-right"></Icon></h3>
+      <h3><Icon type="ios-book-outline"></Icon></Icon> <span class="Hot_topics">影视早到</span><Icon type="ios-arrow-right"></Icon></h3>
       <div v-for="(item,index) in hotRecommendation" :key="index">
         <div class="popular_Introduction">
           <div class="popular_Introduction_left">
@@ -177,7 +177,7 @@ export default {
   created() {
     this.$http.get("http://localhost:3000/d").then(
       res => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         this.bannerImage = res.data.data;
       },
       err => {}
@@ -185,7 +185,7 @@ export default {
 
     this.$http.get("http://localhost:3000/c").then(
       res => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         this.colBannerImage = res.data.data;
       },
       err => {}
@@ -193,7 +193,7 @@ export default {
 
     this.$http.get("http://localhost:3000/hot").then(
       res => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         this.hotRecommendation = res.data.data;
       },
       err => {}

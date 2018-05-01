@@ -11,7 +11,7 @@
         @on-visible-change="handleChange">
         <div class="title">
             <div class="left_line"></div>
-            <div class="wenzi">登录毒舌电影APP</div>
+            <div class="wenzi">登录侃侃电影APP</div>
             <div class="right_line"></div>
             <div class="wall"></div>
         </div>

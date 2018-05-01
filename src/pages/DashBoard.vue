@@ -16,7 +16,8 @@ export default {
       footList: [
         {label:'推荐',icon:'home',active: false,name:'Recommend'},
         {label:'发现',icon:'android-compass',active: false,name:'Find'},
-        {label:'动态',icon:'eye',active: false,name:'Dynamic'},
+        // {label:'动态',icon:'eye',active: false,name:'Dynamic'},
+        {label:'评论',icon:'eye',active: false,name:'Dynamic'},
         {label:'我的',icon:'person',active: false,name:'Mine'},
       ]
     }

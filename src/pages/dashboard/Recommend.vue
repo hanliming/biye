@@ -4,7 +4,7 @@
       <div class="header_calendar">
         <Icon type="android-calendar"></Icon>
       </div>
-      <div class="header_name" >毒舌电影</div>
+      <div class="header_name" >侃侃电影</div>
       <div  class="header_search" v-on:click="search">
         <Icon type="ios-search"></Icon>
       </div>
