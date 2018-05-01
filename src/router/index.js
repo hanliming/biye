@@ -139,8 +139,32 @@ export default new Router({
               name: 'SettingPage',
               component: resolve => require(['../pages/dashboard/mine/SettingPage'],resolve),
               meta: {
-                pageTitle: '设置页面'
+                pageTitle: '设置'
               },
+            },
+            {
+              path: 'SignupPage',
+              name: 'SignupPage',
+              component: resolve => require(['../pages/dashboard/mine/SignupPage'],resolve),
+              meta: {
+                pageTitle: '注册'
+              }
+            },
+            {
+              path: 'LoginPage',
+              name: 'LoginPage',
+              component: resolve => require(['../pages/dashboard/mine/LoginPage'],resolve),
+              meta: {
+                pageTitle: '登录'
+              }
+            },
+            {
+              path: 'ForgetPage',
+              name: 'ForgetPage',
+              component: resolve => require(['../pages/dashboard/mine/ForgetPage'],resolve),
+              meta: {
+                pageTitle: '忘记密码'
+              }
             }
           ]
         },
