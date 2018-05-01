@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Upload action="http://localhost:3000/dynamic/user_img">
+    <Upload action="http://192.168.0.105:3000/dynamic/user_img">
         <Button type="ghost" icon="ios-cloud-upload-outline">Upload files</Button>
     </Upload>
     <Input v-model="msg" placeholder="" style="width: 300px"></Input>
@@ -12,12 +12,12 @@
 export default {
   data () {
     return {
-      meg:''
+      msg:'',
     }
   },
   methods: {
     commit () {
-      this.$http.get('http://localhost:3000/dynamic/add?data='+this.msg)
+      this.$http.get('http://localhost:3000/dynamic/add?id='+this.msg)
       .then(res => {
         // console.log(res)
       },err => {
@@ -25,15 +25,11 @@ export default {
       })
     },
     posts () {
-      this.$http.post('http://localhost:3000/dynamic/upload',
+      this.$http.post('http://localhost:3000/dynamic/add_comment',
       {
-        params:{
-          msg:this.msg,
-          data: this.msg,
-          key: this.msg,
-          keys: this.msg,
-        }
-      })
+        content:this.msg
+      }
+      )
       .then(
         res => {
 
@@ -44,10 +40,21 @@ export default {
       )
     },
     getTest () {
-      this.$http.get('http://localhost:3000/dynamic/d')
+      this.$http.get('http://localhost:3000/dynamic/comment')
       .then(
         res => {
           
+        },
+        err => {
+          
+        }
+      )
+    },
+    test () {
+      this.$http.get('http://localhost:3000/dynamic/movie_type',{params:{type:'jq'}})
+      .then(
+        res => {
+
         },
         err => {
 
@@ -57,6 +64,7 @@ export default {
   },
   created () {
     this.getTest()
+    this.test()
   }
 }
 </script>

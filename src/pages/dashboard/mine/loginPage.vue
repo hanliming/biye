@@ -2,8 +2,20 @@
     <div class="login">
         <div class="title">登录</div>
         <div class="inputs">
-            <div>账号:<input type="text" placeholder="请输入手机号" v-model="mobile"><br></div>
-            <div>密码:<input type="text" placeholder="请输入至少6位数的密码" v-model="password"></div>
+            <!-- <div>账号:<input type="text" placeholder="请输入手机号" v-model="mobile"><br></div>
+            <div>密码:<input type="text" placeholder="请输入至少6位数的密码" v-model="password"></div> -->
+            <Form ref="formInline" :model="formInline" :rules="ruleInline">
+                <FormItem prop="mobile">
+                    <Input class="inp" type="text" v-model.number="formInline.mobile" placeholder="手机号">
+                        <Icon type="ios-person-outline" slot="prepend"></Icon>
+                    </Input>
+                </FormItem>
+                <FormItem prop="password">
+                    <Input class="inp" type="password" v-model="formInline.password" placeholder="密码">
+                        <Icon type="ios-locked-outline" slot="prepend"></Icon>
+                    </Input>
+                </FormItem>
+            </Form>
         </div>
         <button class="loginBtn" @click="goLogin">登录</button>
         <div class="forget_new">
@@ -40,43 +52,70 @@
 export default {
   name: 'loginPage',
   data () {
+      const checkpassword = (rule, value, callback) => {
+      if (!value) {
+        callback(new Error("密码必填"));
+      } else if ((value + "").length < 6) {
+        callback(new Error("不少于6位"));
+      } else {
+        callback();
+      }
+    };
+    const checkuser = (rule, value, callback) => {
+      if (!value) {
+        callback(new Error("请输入手机号"));
+      } else if (!Number.isInteger(value)) {
+        callback(new Error("手机号必须是数字"));
+      } else if (value.toString().length != 11) {
+        callback(new Error("手机号必须是11位"));
+      } else if (!/^1[3|4|5|8][0-9]\d{8}$/.test(value)) {
+        callback(new Error("不是正确的手机号"));
+      } else {
+        callback();
+      }
+    }
     return {
-        mobile: '',
-        password: '',
+        formInline:{
+            mobile: '',
+            password: '',
+        },
+        ruleInline: {
+            mobile: [{ validator: checkuser, trigger: 'blur' }],
+            password: [{ validator: checkpassword, trigger: 'blur' }]
+        },
     }
   },
   methods:{
       //游客模式
       goFreeStyle(){
-          this.$router.push({path: '/'})
+          this.$router.push({name: '/'})
       },
     //   登录
      goLogin(){
          if(this.mobile != '' && this.password != ''){
             this.$http.get('http://localhost:3000/login',{params: {mobile: this.mobile,password: this.password}})
             .then(res=>{
-                console.log(res.data)
                 if(res.data.success == true){
-                    alert('登录成功')
+                    this.$Message.success('登录成功')
                     window.localStorage.setItem('user_name',res.data.message.mobile)
-                    this.$router.push({path: '/userPage'})
+                    this.$router.push({name: 'Mine'})
                 }else{
-                    alert(res.data.message);
+                    this.$Message.warning(res.data.message)
                 }
             },err=>{
                 console.log(err)
             })
          }else{
-             alert('请将信息填写完整');
+             this.$Message.warning('请将信息填写完整')
          }
      },
      //注册
      signUp(){
-         this.$router.push({path: '/signupPage'})
+         this.$router.push({name: 'SignupPage'})
      },
     //忘记密码
     forget(){
-        this.$router.push({path: '/forgetPage'})
+        this.$router.push({name: 'ForgetPage'})
     }
 
   }
@@ -94,7 +133,7 @@ export default {
     font-size: 16px;
     font-weight: bold;
 }
-.inputs div{
+/* .inputs div{
     border-bottom: 1px solid #808080;
     padding-bottom: 2%;
     padding-top: 4%;
@@ -107,7 +146,7 @@ export default {
 }
 .inputs input:focus{
     outline: none;
-}
+} */
 .loginBtn{
     border: none;
     margin-top: 10%;
@@ -128,7 +167,7 @@ export default {
     align-items: center; 
 }
 .left_line{
-    border-top: 1px solid #808080;
+    /* border-top: 1px solid #808080; */
     width: 32%;
 }
 .wenzi{
@@ -138,7 +177,7 @@ export default {
 }
 .right_line{
     width: 32%;
-    border-top: 1px solid #808080;
+    /* border-top: 1px solid #808080; */
 }
 ul{
     list-style: none;

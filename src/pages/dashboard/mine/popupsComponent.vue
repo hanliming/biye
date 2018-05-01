@@ -64,10 +64,10 @@ export default {
         this.$emit('setState')
     },
     goLoginPage(){
-        this.$router.push({path: '/loginPage'}) 
+        this.$router.push({name: 'LoginPage'}) 
     },
     goSignupPage(){
-        this.$router.push({path: '/signupPage'})
+        this.$router.push({name: 'SignupPage'})
     }
   }
 }
