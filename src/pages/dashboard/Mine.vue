@@ -12,7 +12,7 @@
 
     <div v-else class="userInfo_box">
       <div class="touxiang">
-        <!-- <img src="../assets/touxiang.jpg" alt=""> -->
+        <img src="http://www.gx8899.com/uploads/allimg/150311/22361K253-5.jpg" alt="">
       </div>
       <div class="hello">{{user_name}},您好！</div>
     </div>

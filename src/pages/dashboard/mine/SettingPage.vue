@@ -132,7 +132,7 @@ export default {
       //退出登录
       exit () {
           window.localStorage.clear()
-          this.$router.push({name:'userPage'})
+          this.$router.push({name:'LoginPage'})
       },
       //清理缓存
       info (){

@@ -164,30 +164,7 @@ export default new Router({
                 pageTitle: '设置'
               },
             },
-            {
-              path: 'SignupPage',
-              name: 'SignupPage',
-              component: resolve => require(['../pages/dashboard/mine/SignupPage'],resolve),
-              meta: {
-                pageTitle: '注册'
-              }
-            },
-            {
-              path: 'LoginPage',
-              name: 'LoginPage',
-              component: resolve => require(['../pages/dashboard/mine/LoginPage'],resolve),
-              meta: {
-                pageTitle: '登录'
-              }
-            },
-            {
-              path: 'ForgetPage',
-              name: 'ForgetPage',
-              component: resolve => require(['../pages/dashboard/mine/ForgetPage'],resolve),
-              meta: {
-                pageTitle: '忘记密码'
-              }
-            }
+            
           ]
         },
         {
@@ -196,6 +173,30 @@ export default new Router({
           component: resolve => require(['../pages/dashboard/Search'],resolve),
           meta: {
             pageTitle: '搜索'
+          }
+        },
+        {
+          path: 'SignupPage',
+          name: 'SignupPage',
+          component: resolve => require(['../pages/dashboard/SignupPage'],resolve),
+          meta: {
+            pageTitle: '注册'
+          }
+        },
+        {
+          path: 'LoginPage',
+          name: 'LoginPage',
+          component: resolve => require(['../pages/dashboard/LoginPage'],resolve),
+          meta: {
+            pageTitle: '登录'
+          }
+        },
+        {
+          path: 'ForgetPage',
+          name: 'ForgetPage',
+          component: resolve => require(['../pages/dashboard/ForgetPage'],resolve),
+          meta: {
+            pageTitle: '忘记密码'
           }
         }
       ]
